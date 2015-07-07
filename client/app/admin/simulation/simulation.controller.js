@@ -38,8 +38,6 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       $scope.chartConfig.series = chart;
     }, true);
 
-    $http.update('/api/economy/' + data._id);
-
     $scope.$watch('drag', function (round) {
       $scope.drag = round;
     });
@@ -47,11 +45,17 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
     $scope.$watch('drop', function (newValue) {
       var round = $scope.drag;
       var serie = $scope.chartData[0].control;
-      var oldValue = $scope.chartData[0].control[round];
+      var oldValue = serie[round];
       var index = serie.indexOf(oldValue);
       if (index !== -1) {
           serie[index] = Number(newValue);
       };
+      var chart = $scope.chartData[0];
+      console.log(chart)
+      $http.put('/api/economy/' + $scope.chartData[0]._id, chart).success(function () {
+        console.log('$scope.chartData[0]: ', $scope.chartData[0]);
+        console.log('** updated!!!');
+      });
     });
 
 
