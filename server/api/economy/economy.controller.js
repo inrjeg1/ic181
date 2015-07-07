@@ -33,15 +33,10 @@ exports.create = function(req, res) {
 // Updates an existing economy in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  // console.log('** req.params.id: ', req.params.id)
   Economy.findById(req.params.id, function (err, economy) {
-    // console.log('** economy: ', economy)
     if (err) { return handleError(res, err); }
     if(!economy) { return res.send(404); }
-    console.log('** economy: ', economy)
-    console.log('** req.body: ', req.body)
     var updated = _.extend(economy, req.body);
-    console.log('** updated: ', updated)
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, economy);

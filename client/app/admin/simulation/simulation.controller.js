@@ -25,17 +25,22 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
     });
 
     $scope.$watch('chartData', function (data) {
-      var chart = [{
-        "name": "Control",
-        "data": data[0].control,
-        "color": "grey",
-        "draggableY": true,
-        "marker": {
-          "radius": 6
-        },
-        "stickyTracking": false
-      }];
-      $scope.chartConfig.series = chart;
+      console.log(data)
+      var charts = []
+      for (var i in data) {
+        var chart = {
+          "name": data[i].name,
+          "data": data[i].control,
+          "color": data[i].color,
+          "draggableY": data[i].draggableY,
+          "marker": {
+            "radius": 6
+          },
+          "stickyTracking": false
+        };
+        charts.push(chart)
+      }
+      $scope.chartConfig.series = charts;
     }, true);
 
     $scope.$watch('drag', function (round) {
@@ -50,22 +55,9 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       if (index !== -1) {
           serie[index] = Number(newValue);
       };
-      var chart = $scope.chartData[0];
-      console.log(chart)
-      $http.put('/api/economy/' + $scope.chartData[0]._id, chart).success(function () {
-        console.log('$scope.chartData[0]: ', $scope.chartData[0]);
-        console.log('** updated!!!');
-      });
+      var updated = $scope.chartData[0];
+      $http.put('/api/economy/' + updated._id, updated);
     });
-
-
-    // $scope.drop = 'drop feedback';
-    // $scope.round = '0'
-    // $scope.serieName = 'nothing changed yet'
-    // $scope.chartData = ''
-    // $scope.controlEconomy = ''
-    // $scope.serieData = []
-
 
     $scope.chartConfig = {
       options: {
