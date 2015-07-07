@@ -30,6 +30,23 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                <h3 class="panel-title">Dynamic Highcharts</h3>
+            </div>
+            <div class="panel-body">
+                <highchart id="chart1" config="chartConfig" class="span9" ></highchart>
+                <p>chartData: {{ chartData }}</p>
+                <p>serieData: {{ serieData }}</p>
+                <p>Drop: {{ drop }}</p>
+                <p>Round: {{ round }}</p>
+                <p>Serie Name: {{ serieName }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 <h3 class="panel-title">Inputs</h3>
             </div>
             <div class="panel-body">

@@ -4,7 +4,8 @@ angular.module('atrExpApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'highcharts-ng'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
