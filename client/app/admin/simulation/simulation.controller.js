@@ -16,16 +16,16 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
 
     // BREAK
 
-    $scope.chartData = 'chartData';
-    $scope.drag = 0;
+    $scope.chartData = [];
+    $scope.drag = 'drag';
     $scope.drop = 'drop';
     
     $http.get('/api/economy').success(function (economies) {
       $scope.chartData = economies;
+      console.log('GET')
     });
 
     $scope.$watch('chartData', function (data) {
-      console.log(data)
       var charts = []
       for (var i in data) {
         var chart = {
@@ -33,6 +33,7 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
           "data": data[i].control,
           "color": data[i].color,
           "draggableY": data[i].draggableY,
+          "type": data[i].type,
           "marker": {
             "radius": 6
           },
@@ -48,16 +49,36 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
     });
 
     $scope.$watch('drop', function (newValue) {
-      var round = $scope.drag;
-      var serie = $scope.chartData[0].control;
-      var oldValue = serie[round];
-      var index = serie.indexOf(oldValue);
-      if (index !== -1) {
-          serie[index] = Number(newValue);
-      };
-      var updated = $scope.chartData[0];
-      $http.put('/api/economy/' + updated._id, updated);
+      $http.get('/api/economy').success(function (economies) {
+        var round = $scope.drag;
+        var serie = economies[0].control;
+        var oldValue = serie[round];
+        var index = serie.indexOf(oldValue);
+        if (index !== -1) {
+            serie[index] = Number(newValue);
+        };
+        var updated = economies[0];
+        $http.put('/api/economy/' + updated._id, updated);
+        $scope.applyFormula(round, newValue);
+      })
     });
+
+    $scope.applyFormula = function (round, newValue) {
+        for (var i in $scope.chartData) {
+          if ($scope.chartData[i].code != 'control') {
+            for (var j in $scope.chartData[i].control) {
+              if (j == round) {
+                console.log('round: ', round)
+                console.log('j: ', j)
+                var random = Math.random() + 1 ;
+                random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+                var multiplier = newValue * random
+                $scope.chartData[i].control[j] = multiplier;
+              }
+            }
+          }
+        }
+    };
 
     $scope.chartConfig = {
       options: {
@@ -70,13 +91,17 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
               point: {
                   events: {
                       drag: function (e) {
-                          $scope.drag = this.category;
-                          $scope.$apply();
+                          if (this.series.name == 'Control') {
+                            $scope.drag = this.category;
+                            $scope.$apply();
+                          }
                       },
                       drop: function () {
-                          $scope.drop = Highcharts.numberFormat(this.y, 2);
-                          $scope.serieName = this.series.name
-                          $scope.$apply();
+                          if (this.series.name == 'Control') {
+                            $scope.drop = Highcharts.numberFormat(this.y, 2);
+                            $scope.serieName = this.series.name
+                            $scope.$apply();
+                          }
                       }
                   }
               },
