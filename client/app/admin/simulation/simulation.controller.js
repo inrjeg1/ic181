@@ -30,7 +30,7 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       // for (var i in data) {
       //   var chart = {
       //     "name": data[i].name,
-      //     "data": data[i].control,
+      //     "data": data[i].data,
       //     "color": data[i].color,
       //     "draggableY": data[i].draggableY,
       //     "type": data[i].type,
@@ -47,7 +47,7 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       for (var i in data) {
         $scope.chartConfig.series.push({
           name: data[i].name,
-          data: data[i].control,
+          data: data[i].data,
           color: data[i].color,
           draggableY: data[i].draggableY,
           type: data[i].type,
@@ -66,7 +66,7 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
     $scope.$watch('drop', function (newValue) {
       $http.get('/api/economy').success(function (economies) {
         var round = $scope.drag;
-        var serie = economies[0].control;
+        var serie = economies[0].data;
         var oldValue = serie[round];
         var index = serie.indexOf(oldValue);
         if (index !== -1) {
@@ -82,20 +82,20 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       console.log('chartData: ', $scope.chartData)
       for (var i in $scope.chartData) {
         if ($scope.chartData[i].code != 'control') {
-          for (var j in $scope.chartData[i].control) {
+          for (var j in $scope.chartData[i].data) {
             if (j == round) {
               console.log('round: ', round)
               console.log('j: ', j)
               var random = Math.random() + 1 ;
               random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
               var multiplier = newValue * random
-              $scope.chartData[i].control[j] = multiplier;
+              $scope.chartData[i].data[j] = multiplier;
             }
           }
         } else {
-          for (var m in $scope.chartData[i].control) {
+          for (var m in $scope.chartData[i].data) {
             if (m == round) {
-              $scope.chartData[i].control[m] = Number(newValue)
+              $scope.chartData[i].data[m] = Number(newValue)
             }
           }
         }

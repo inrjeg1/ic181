@@ -7,7 +7,7 @@ var EconomySchema = new Schema({
   __v: Number,
   name: String,
   code: String,
-  control: Array,
+  data: Array,
   color: String,
   draggableY: Boolean,
   type: String
