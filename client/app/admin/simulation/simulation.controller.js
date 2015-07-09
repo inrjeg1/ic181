@@ -1,21 +1,6 @@
 'use strict';
 angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http) {
-    $scope.message = 'Hello';
-    $scope.rounds = [0, 1.9, 1.4, 2.2, 3.0, 2.9, 1.6, 0.5];
-    $scope.countries = [{
-        name: 'The Netherlands',
-        code: 'nl'
-    }, {
-        name: 'Germany',
-        code: 'ge'
-    }, {
-        name: 'United Kingdom',
-        code: 'uk'
-    }];
-
-
-    // BREAK
-
+    $scope.region = 'West-Europe';
     $scope.chartData = [];
     $scope.drag = 'drag';
     $scope.drop = 'drop';
@@ -73,11 +58,11 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
         };
         var updated = economies[0];
         $http.put('/api/economy/' + updated._id, updated);
-        $scope.updateChart(round, newValue);
+        $scope.updateEconomy(round, newValue);
       })
     });
 
-    $scope.updateChart = function (round, newValue) {
+    $scope.updateEconomy = function (round, newValue) {
       console.log('chartData: ', $scope.chartData)
       $http.get('/api/economy/').success(function (economies) {
         for (var i in economies) {
@@ -149,7 +134,7 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
       },
       series: [], 
       title: {
-        text: 'Hello'
+        text: $scope.region
       },
       credits: {
         enabled: false
