@@ -106,6 +106,10 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
         chart: {
           type: 'line'
         },
+        xAxis: {
+            categories: ['Round 1', 'Round 2', 'Round 3', 'Round 4', 'Round 5', 'Round 6', 'Round 7', 'Round 8']
+        },
+        colors: ['#7cb5ec', '#90ed7d', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'],
         plotOptions: {
           series: {
               cursor: 'ns-resize',
@@ -113,7 +117,11 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
                   events: {
                       drag: function (e) {
                           if (this.series.name == 'Control') {
-                            $scope.drag = this.category;
+                            // $scope.drag = this.category;
+                            console.log('1: ', this.series.data.indexOf(this.point))
+                            console.log('2: ', this.series.data)
+                            console.log('3: ', this)
+                            $scope.drag = this.series.data.indexOf(this)
                             $scope.$apply();
                           }
                       },
