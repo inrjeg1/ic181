@@ -1,0 +1,7 @@
+<div class="page-sidebar" ng-controller="SimulationbarCtrl">    
+   <ul>
+    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+        <a ng-href="{{item.link}}" target="_self">{{item.title}}</a>
+    </li>
+   </ul>
+</div>
