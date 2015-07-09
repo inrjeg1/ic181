@@ -79,26 +79,32 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
 
     $scope.updateChart = function (round, newValue) {
       console.log('chartData: ', $scope.chartData)
-      for (var i in $scope.chartData) {
-        if ($scope.chartData[i].code != 'control') {
-          for (var j in $scope.chartData[i].data) {
-            if (j == round) {
-              console.log('round: ', round)
-              console.log('j: ', j)
-              var random = Math.random() + 1 ;
-              random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
-              var multiplier = newValue * random
-              $scope.chartData[i].data[j] = multiplier;
+      $http.get('/api/economy/').success(function (economies) {
+        for (var i in economies) {
+          if (economies[i].code != 'control') {
+            for (var j in economies[i].data) {
+              if (j == round) {
+                console.log('round: ', round)
+                console.log('j: ', j)
+                var random = Math.random() + 1 ;
+                random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+                var multiplier = newValue * random
+                economies[i].data[j] = multiplier;
+              }
+            }
+            console.log('formule: ', $scope.chartData)
+          } else {
+            for (var m in economies[i].data) {
+              if (m == round) {
+                economies[i].data[m] = Number(newValue)
+              }
             }
           }
-        } else {
-          for (var m in $scope.chartData[i].data) {
-            if (m == round) {
-              $scope.chartData[i].data[m] = Number(newValue)
-            }
-          }
+          $scope.chartData = economies;
+          var updated = economies
+          $http.put('/api/economy/' + updated[i]._id, updated[i]);
         }
-      }
+      });
     };
 
     $scope.chartConfig = {
