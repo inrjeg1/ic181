@@ -22,25 +22,10 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
     
     $http.get('/api/economy').success(function (economies) {
       $scope.chartData = economies;
-      console.log('GET')
+      console.log('economies: ', economies)
     });
 
     $scope.$watch('chartData', function (data) {
-      // var charts = []
-      // for (var i in data) {
-      //   var chart = {
-      //     "name": data[i].name,
-      //     "data": data[i].data,
-      //     "color": data[i].color,
-      //     "draggableY": data[i].draggableY,
-      //     "type": data[i].type,
-      //     "marker": {
-      //       "radius": 6
-      //     },
-      //     "stickyTracking": false
-      //   };
-      //   charts.push(chart)
-      // }
       data = $scope.chartData
       console.log('data: ', data)
       $scope.chartConfig.series = []
@@ -52,7 +37,21 @@ angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http)
           draggableY: data[i].draggableY,
           type: data[i].type,
           marker: {
-            radius: 6
+            symbol: 'circle',
+            enabled: data[i].marker,
+            radius: 6,
+            states: {
+              hover: {
+                enabled: data[i].hover
+              }
+            }
+          },
+          lineWidth: '3px',
+          states: {
+            hover: {
+              enabled: data[i].hover,
+              lineWidth: '3px'
+            }
           },
           stickyTracking: false
         });

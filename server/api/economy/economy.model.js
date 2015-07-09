@@ -10,7 +10,9 @@ var EconomySchema = new Schema({
   data: Array,
   color: String,
   draggableY: Boolean,
-  type: String
+  type: String,
+  marker: Boolean,
+  hover: Boolean
 });
 
 module.exports = mongoose.model('Economy', EconomySchema);
