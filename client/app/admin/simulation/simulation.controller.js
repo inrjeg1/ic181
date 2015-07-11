@@ -1,5 +1,6 @@
 'use strict';
-angular.module('atrExpApp').controller('SimulationCtrl', function($scope, $http) {
+angular.module('atrExpApp')
+  .controller('SimulationCtrl', function ($scope, $http) {
     $scope.tabs = [
       { title:'Dynamic Title 1', content:'Dynamic content 1' },
       { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: false }
