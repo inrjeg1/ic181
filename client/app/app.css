@@ -37,3 +37,13 @@
     color: #000;
     padding: 0.2em 0;
 }
+
+/**
+ * UI.BOOTSTRAP Directive
+ */
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.tab-content {
+    margin-top:-112px;
+}

@@ -15,4 +15,20 @@ angular.module('atrExpApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    // var w = angular.element($window);
+    // $scope.getHeight = function() {
+    //     return w.height();
+    // };
+    // $scope.$watch($scope.getHeight, function(newValue, oldValue) {
+    //     $scope.windowHeight = newValue;
+    //     $scope.style = function() {
+    //         return 'height="' + newValue + '"'
+    //     };
+    // });
+
+    // w.bind('resize', function () {
+    //     $scope.$apply();
+    // });
+
   });

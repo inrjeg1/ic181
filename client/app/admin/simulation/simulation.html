@@ -4,60 +4,17 @@
     <li class="active">Simulation</li>
 </ul>
 <!-- END BREADCRUMB -->
-<!-- <div class="page-title">
-        <h2>Simulation</h2>
-</div> -->
-<div ng-include="'components/simulationbar/simulationbar.html'"></div>
-
-<!-- START PAGE HEAD -->
-<div class="page-head">
-    <div class="page-head-text">
-        <h1>Custom Page Header</h1>
-        <p class="page-head-subtitle">Some awesome subtitle goes here</p>
-    </div>
-    <div class="page-head-controls">
-        <button class="btn btn-success btn-rounded"><span class="fa fa-pencil"></span> Add</button>
-        <button class="btn btn-danger btn-rounded"><span class="fa fa-times"></span> Remove</button>
-    </div>
+<div class="page-title">
+    <h2>Simulation</h2>
 </div>
-<!-- END PAGE HEAD -->
 
 <!-- PAGE CONTENT TABBED -->
-<div class="page-tabs">
-    <a href="#first-tab" class="active">First tab</a>
-    <a href="#second-tab">Second tab</a>
-</div>
-
-<div class="page-content-wrap page-tabs-item active" id="first-tab">
-
-    <div class="page-content-wrap">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Dynamic Highcharts</h3>
-                    </div>
-                    <div class="panel-body">
-                        <highchart id="chart1" config="chartConfig" class="span9" ></highchart>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<div class="page-content-wrap page-tabs-item" id="second-tab">
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    Second tab content
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!-- END PAGE CONTENT TABBED -->
-
+<tabset>
+    <tab heading="Indicators">
+      <div style="background:white;width:100%;height:400px;padding:20px;">Hello world</div>
+    </tab>
+    <tab heading="West-Europe" ng-click="reflow()">
+      <highchart id="chart1" config="chartConfig" class="span9" ></highchart>
+    </tab>
+</tabset>
+<!-- END PAGE CONTENT TABBED --> 
