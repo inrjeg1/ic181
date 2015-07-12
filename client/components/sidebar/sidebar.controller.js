@@ -13,6 +13,7 @@ angular.module('atrExpApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
 
     $scope.isActive = function(route) {
+      // if route === '/admin'
       return route === $location.path();
     };
 
