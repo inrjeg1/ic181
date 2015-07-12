@@ -5,6 +5,9 @@ angular.module('atrExpApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+      'title': 'Customer Portfolio',
+      'link': '/customer-portfolio'
     }];
 
     $scope.isCollapsed = true;

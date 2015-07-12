@@ -9,8 +9,6 @@
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}"><span class="fa fa-desktop"></span> <span class="xn-text">{{item.title}}</span></a>
         </li>
-        <li >
-        </li>
         <li class="xn-openable" ng-show="isAdmin()" ng-class="{active: isActive('/admin')}">
             <a href="/admin"><span class="fa fa-smile-o"></span> <span class="xn-text">Admin</span></a>
             <ul>
