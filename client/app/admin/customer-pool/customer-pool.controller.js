@@ -24,7 +24,7 @@ angular.module('atrExpApp')
       "buyerIndustry3":"Chemicals",
       "buyerTpe3":565189
     };
-    $http.post('/api/customer', { "name": 'hi'});
+    $http.post('/api/customer', { name: 'hi'});
 
     $http.get('/api/customer').success(function (customers) {
       $scope.customerPool = customers;
