@@ -1182,14 +1182,14 @@ body.page-container-boxed.wall_10 {
 .profile .profile-data .profile-data-name {
   width: 100%;
   float: left;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 500;
   color: #FFF;
 }
 .profile .profile-data .profile-data-title {
   width: 100%;
   float: left;
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 400;
   color: #999;
 }

@@ -20,6 +20,9 @@ angular.module('atrExpApp')
       };
     })
 
-    
+    // function setRange(min,max)
+    // {
+    //     $scope.risk = Math.floor(Math.random()*(max-min+1)+min);
+    // }
 
   });

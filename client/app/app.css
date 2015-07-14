@@ -47,3 +47,8 @@
 .tab-content {
     margin-top:-162px;
 }
+
+.panel .as-panel-customer {
+    padding: 15px 15px 5px 15px;
+    position: relative;
+}

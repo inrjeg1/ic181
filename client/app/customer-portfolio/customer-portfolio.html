@@ -28,6 +28,7 @@
                                     <th>Buyer 1</th>
                                     <th>Buyer 2</th>
                                     <th>Buyer 3</th>
+                                    <th>Offer</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,6 +40,7 @@
                                     <td>{{ cust.buyerTpe1 }}</td>
                                     <td>{{ cust.buyerTpe2 }}</td>
                                     <td>{{ cust.buyerTpe3 }}</td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showCustomer(cust); open()">Make Offer</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -46,6 +48,107 @@
                           max-size="5" boundary-links="true"
                           items-per-page="numPerPage" class="pagination-sm">
                         </pagination>
+                        <div ng-controller="ModalInstanceCtrl">
+                            <script type="text/ng-template" id="myModalContent.html">
+                                <!-- PROFILE WIDGET -->
+                                
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-body profile bg-info" style="margin-bottom:15px">
+
+                                            <div class="profile-image">
+                                                <img src="assets/img/people/customer-1.jpg" alt="John Doe">
+                                            </div>
+                                            <div class="profile-data">
+                                                <div class="profile-data-name">{{ selected.name }}</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="panel-body as-panel-customer">
+                                            <div class="col-md-12"><p><span><strong>Customer:</strong></span></p></div>
+                                            <div class="col-md-4">
+                                                <span href="#" class="tile tile-default">
+                                                    <img src="assets/img/flags/{{ selected.countryCode }}.png" width="32" height="32" style="margin-bottom:4px"> 
+                                                    <p>{{selected.country}}</p>
+                                                </span>                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span href="#" class="tile tile-default">
+                                                    <span class="fa fa-globe" style="font-size: 32px;line-height: 54px;"></span>
+                                                    <p>{{ selected.industry }}</p>
+                                                </span>                        
+                                            </div>
+                                            <div class="col-md-4">
+                                                <span href="#" class="tile tile-default">
+                                                    $3,959
+                                                    <p>Turnover</p>
+                                                </span>                        
+                                            </div>
+                                        </div>
+                                        <div class="panel-body as-panel-customer">
+                                            <div class="col-md-12"><p><span><strong>Buyers:</strong></span></p></div>
+                                            <div class="col-md-4">
+                                                
+                                                    <span class="tile tile-default">
+                                                        <p style="font-size:12px;"><img src="assets/img/flags/{{ selected.countryCode }}.png" width="12" height="12" style="margin-bottom:4px"> 
+                                                        {{selected.country}}</p>
+                                                        <p style="font-size:12px"><span class="fa fa-globe" style="font-size: 12px;line-height: 18px;"></span> {{ selected.industry }}</p>
+                                                        <p><span class="fa fa-cloud" style="font-size: 32px;line-height: 54px;"></span></p>
+                                                        <p>Risk</p>
+                                                    </span> 
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                
+                                                    <span class="tile tile-default">
+                                                        <p style="font-size:12px;"><img src="assets/img/flags/gb.png" width="12" height="12" style="margin-bottom:4px"> 
+                                                        United Kingdom</p>
+                                                        <p style="font-size:12px"><span class="fa fa-globe" style="font-size: 12px;line-height: 18px;"></span> Food</p>
+                                                        <p><span class="fa fa-cloud" style="font-size: 32px;line-height: 54px;"></span></p>
+                                                        <p>Risk</p>
+                                                    </span> 
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                
+                                                    <span class="tile tile-default">
+                                                        <p style="font-size:12px;"><img src="assets/img/flags/nl.png" width="12" height="12" style="margin-bottom:4px"> 
+                                                        The Netherlands</p>
+                                                        <p style="font-size:12px"><span class="fa fa-globe" style="font-size: 12px;line-height: 18px;"></span> Construction</p>
+                                                        <p><span class="fa fa-cloud" style="font-size: 32px;line-height: 54px;"></span></p>
+                                                        <p>Risk</p>
+                                                    </span> 
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="panel-body as-panel-customer">
+                                            <div class="col-md-12">
+                                                <form role="form">
+                                                    <label class="col-md-3 control-label">Set price: </label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><span class="fa fa-eur"></span></span>
+                                                            <input type="text" class="form-control">
+                                                        </div>    
+                                                        <span class="help-block">The average price is 0.2 of the turnover.</span>
+                                                    </div>                 
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <a href="#" class="btn btn-block btn-lg btn-success"><span class="fa fa-comments-o"></span> Make an offer!</a>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body list-group">
+                                            <a href="#" class="list-group-item btn btn-lg" ng-click="cancel()"><span></span> (close)</a>
+                                        </div>                            
+                                    </div>
+
+                                
+                                <!-- END PROFILE WIDGET -->
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,4 +161,5 @@
   <div class="tab-container" style="height:400px;">Here comes the new business decisions (bidding)</div>
 </tab>
 </tabset>
-<!-- END PAGE CONTENT TABBED
+
+<!-- END PAGE CONTENT TABBED -->
