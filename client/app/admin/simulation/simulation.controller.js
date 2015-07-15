@@ -1,6 +1,6 @@
 'use strict';
 angular.module('atrExpApp')
-  .controller('SimulationCtrl', function ($scope, $http) {
+  .controller('SimulationCtrl', function ($scope, $http, toastr) {
     $scope.tabs = [
       { title:'Dynamic Title 1', content:'Dynamic content 1' },
       { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: false }
@@ -130,6 +130,7 @@ angular.module('atrExpApp')
                           if (this.series.name == 'Control') {
                             $scope.drop = Highcharts.numberFormat(this.y, 2);
                             $scope.serieName = this.series.name
+                            toastr.success('New data point is saved in the database.', 'Saved!');
                             $scope.$apply();
                           }
                       }

@@ -3,7 +3,6 @@
 angular.module('atrExpApp')
 
   .controller('CustomerPortfolioCtrl', function ($scope, $http, $modal, $log) {
-    
     $http.get('/api/customer').success(function (customers) {
       console.log(customers)
       $scope.objects = customers

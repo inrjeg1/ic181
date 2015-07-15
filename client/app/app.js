@@ -6,7 +6,8 @@ angular.module('atrExpApp', [
   'ngSanitize',
   'ui.router',
   'highcharts-ng',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'toastr'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
