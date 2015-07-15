@@ -9,7 +9,7 @@ angular.module('atrExpApp')
       $scope.objects = customers
       $scope.totalItems = $scope.objects.length;
       $scope.currentPage = 1;
-      $scope.numPerPage = 5;
+      $scope.numPerPage = 10;
       
       $scope.paginate = function(value) {
         var begin, end, index;
