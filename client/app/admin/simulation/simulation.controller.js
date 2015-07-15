@@ -6,10 +6,6 @@ angular.module('atrExpApp')
       { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: false }
     ];
 
-    $scope.reflow = function () {
-      $scope.$broadcast('highchartsng.reflow');
-    }
-
     $scope.region = 'West-Europe';
     $scope.chartData = [];
     $scope.drag = 'drag';
@@ -152,6 +148,11 @@ angular.module('atrExpApp')
       },
       loading: false,
       size: {}
+    }
+
+    $scope.reflow = function () {
+      $scope.$broadcast('highchartsng.reflow');
+      // console.log('reflow!!!')
     }
 });
 
