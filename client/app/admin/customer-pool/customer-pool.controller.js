@@ -25,4 +25,26 @@ angular.module('atrExpApp')
     //     $scope.risk = Math.floor(Math.random()*(max-min+1)+min);
     // }
 
-  });
+  })
+
+  .controller('ExampleController', ExampleController)
+        .directive('jqSpinner', jqSpinner);
+
+    function ExampleController() {
+        var c = this;
+        c.exampleValue = 100;
+    };
+
+    function jqSpinner() {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function (scope, element, attrs, c) {
+                element.spinner({
+                    spin: function (event, ui) {
+                        c.$setViewValue(ui.value);
+                    }
+                });
+            }
+        };
+    };
