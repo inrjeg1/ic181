@@ -32,7 +32,7 @@ angular.module('atrExpApp')
 
     function ExampleController() {
         var c = this;
-        c.exampleValue = 100;
+        c.exampleValue = 0;
     };
 
     function jqSpinner() {

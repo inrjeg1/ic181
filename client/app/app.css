@@ -38,6 +38,24 @@
     padding: 0.2em 0;
 }
 
+.as-ar-spinner {
+    margin-bottom: 10px;
+}
+
+/**
+ * Overrides
+ */
+
+.tile {
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.tile .fa {
+    font-size: 12px;
+    line-height: 14px;
+}
+
 /**
  * UI.BOOTSTRAP Directive
  */
@@ -49,6 +67,20 @@
 }
 
 .panel .as-panel-customer {
-    padding: 15px 15px 5px 15px;
+    padding: 0px;
     position: relative;
+}
+
+.as-col-md-4 {
+  padding-right: 0px;
+  padding-left: 15px;
+}
+
+.as-col-md-6 {
+  padding-right: 0px;
+  padding-left: 15px;
+}
+
+.progress.progress-small { 
+  margin-top: 10px; /* added for acceptance rate */
 }
