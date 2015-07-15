@@ -7,7 +7,8 @@ angular.module('atrExpApp', [
   'ui.router',
   'highcharts-ng',
   'ui.bootstrap',
-  'toastr'
+  'toastr',
+  'ngAnimate'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
