@@ -29,7 +29,15 @@
                     <h3 class="panel-title">Dashboard</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-12 control-label">Textarea</label>
+                            <div class="col-md-6 col-xs-12">                                            
+                                <textarea class="form-control" rows="5" ng-model="tweet"></textarea>
+                                <span class="help-block">{{twCounter}} characters remaining</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="tw" style="margin-left:0px;padding:20px;" id="download">
                                 
@@ -38,15 +46,15 @@
                                     <img src="http://simitator.com/gfx/generators/twitter/profile.jpg" width="50" height="50" id="profile" class="img-rounded">
                                 </div>
                                 <div class="name">
-                                    <div class="username"><span class="text-name">Simitator.com</span></div>
-                                    <div class="at">@<span class="text-at">Simitator</span></div>
+                                    <div class="username"><span class="text-name">Team.com</span></div>
+                                    <div class="at">@<span class="text-at">Team</span></div>
                                 </div>
                                 <div class="follow">
                                     <img src="http://simitator.com/gfx/generators/twitter/profile_dropdown.jpg" width="42" height="30" alt="profile"><img src="http://simitator.com/gfx/generators/twitter/follow_no.jpg" width="86" height="30" alt="Follow" id="follow-img">
                                 </div>
                                 <div class="clear"></div>
                                 <div class="message">
-                                     <span class="text-message">Build your own Fake Twitter Post now! Check it out @ <span class="link">simitator.com</span></span>
+                                     <span class="text-message">{{ tweet }}</span>
                                 </div>
                                 <ul id="options">
                                     <li><img src="http://simitator.com/gfx/generators/twitter/reply.jpg" width="22" height="15"> <span class="text-reply">Reply</span></li>

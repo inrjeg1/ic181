@@ -16,6 +16,13 @@ angular.module('atrExpApp')
       $scope.newThing = '';
     };
 
+    $scope.tweet = '';
+    $scope.twCounter = 140;
+
+    $scope.$watch('tweet', function (tweet) {
+      $scope.twCounter = (140 - tweet.length)
+    });
+
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
