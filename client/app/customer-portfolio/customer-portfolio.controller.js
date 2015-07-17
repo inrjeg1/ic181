@@ -2,37 +2,20 @@
 
 angular.module('atrExpApp')
 
-  .controller('CustomerPortfolioCtrl', function ($scope, $http, $modal, $log) {
-    $http.get('/api/customer').success(function (customers) {
-      console.log(customers)
-      $scope.objects = customers
-      $scope.totalItems = $scope.objects.length;
-      $scope.currentPage = 1;
-      $scope.numPerPage = 10;
-      
-      $scope.paginate = function(value) {
-        var begin, end, index;
-        begin = ($scope.currentPage - 1) * $scope.numPerPage;
-        end = begin + $scope.numPerPage;
-        index = $scope.objects.indexOf(value);
-        return (begin <= index && index < end);
-      };
-    })
+  .controller('CustomerPortfolioCtrl', function ($scope, $modal, $log) {
 
     $scope.showCustomer = function(cust) {
-      console.log(cust)
       $scope.selected = cust
     }
 
-    // $scope.items = ['item1', 'item2', 'item3'];
-
-    $scope.animationsEnabled = true;
+    $scope.animationsEnabled = true
 
     $scope.open = function (size) {
 
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'myModalContent.html',
+        templateUrl: 'app/customer-portfolio/modal-customer-decision.html',
+        // template: $templateCache.get('modal-customer-decision.html')
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
@@ -44,9 +27,9 @@ angular.module('atrExpApp')
 
       modalInstance.result.then(function (selectedItem) {
         $scope.selected = selectedItem;
-      }, function () {
+      }), function () {
         $log.info('Modal dismissed at: ' + new Date());
-      });
+      };
     };
 
     $scope.toggleAnimation = function () {
@@ -55,12 +38,11 @@ angular.module('atrExpApp')
 
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, $templateCache) {
+
+    // console.log($templateCache.get('./modal-customer-decision.html'))
 
     $scope.selected = items;
-    // $scope.selected = {
-    //   item: $scope.items[0]
-    // };
 
     // $scope.ok = function () {
     //   $modalInstance.close($scope.selected.item);
