@@ -8,7 +8,9 @@ angular.module('atrExpApp', [
   'highcharts-ng',
   'ui.bootstrap',
   'toastr',
-  'ngAnimate'
+  'ngAnimate',
+  'datatables',
+  'ngResource'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

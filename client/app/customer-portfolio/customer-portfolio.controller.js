@@ -69,6 +69,15 @@ angular.module('atrExpApp')
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  });
+  })
+
+.controller('AngularWayCtrl', AngularWayCtrl);
+
+function AngularWayCtrl($resource) {
+    var vm = this;
+    $resource('/api/customer').query().$promise.then(function(persons) {
+        vm.persons = persons;
+    });
+}
 
   
