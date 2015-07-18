@@ -2,20 +2,19 @@
 
 angular.module('atrExpApp')
 
-  .controller('CustomerPortfolioCtrl', function ($scope, $modal, $log) {
+  .controller('CustomerPortfolioCtrl', function ($scope, $modal) {
 
     $scope.showCustomer = function(cust) {
       $scope.selected = cust
     }
 
-    $scope.animationsEnabled = true
+    $scope.animationsEnabled = false
 
     $scope.open = function (size) {
 
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'app/customer-portfolio/modal-customer-decision.html',
-        // template: $templateCache.get('modal-customer-decision.html')
+        templateUrl: 'app/customer-portfolio/tpl/modal-customer-decision.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
@@ -27,13 +26,7 @@ angular.module('atrExpApp')
 
       modalInstance.result.then(function (selectedItem) {
         $scope.selected = selectedItem;
-      }), function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      };
-    };
-
-    $scope.toggleAnimation = function () {
-      $scope.animationsEnabled = !$scope.animationsEnabled;
+      })
     };
 
   })
