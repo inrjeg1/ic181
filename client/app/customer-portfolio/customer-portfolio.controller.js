@@ -45,11 +45,10 @@ angular.module('atrExpApp')
     };
   })
 
-.controller('LoadCustomersCtrl', LoadCustomersCtrl);
-
-function LoadCustomersCtrl($resource) {
+.controller('LoadCustomersCtrl', function LoadCustomersCtrl($resource) {
     var vm = this;
+    // fetch data with $resource
     $resource('/api/customer').query().$promise.then(function(customers) {
         vm.customers = customers;
     });
-}
+})
