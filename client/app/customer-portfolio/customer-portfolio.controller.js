@@ -31,7 +31,7 @@ angular.module('atrExpApp')
 
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items, $templateCache) {
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
     // console.log($templateCache.get('./modal-customer-decision.html'))
 
