@@ -10,8 +10,7 @@ angular.module('atrExpApp', [
   'toastr',
   'ngAnimate',
   'datatables',
-  'ngResource',
-  'ui.tab.scroll'
+  'ngResource'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
