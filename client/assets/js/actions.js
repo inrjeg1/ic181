@@ -347,7 +347,7 @@ function page_content_onresize(){
     var sidebar = $(".page-sidebar");
     
     if(content.height() < vpH - content_minus){        
-        content.height(vpH - content_minus);
+        content.css('min-height', (vpH - content_minus))
     }        
     
     if(sidebar.height() > content.height()){        
