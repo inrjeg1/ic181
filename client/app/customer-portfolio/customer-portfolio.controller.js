@@ -4,55 +4,52 @@ angular.module('atrExpApp')
 
   .controller('CustomerPortfolioCtrl', function ($scope, $modal) {
 
+    // load selected customer in modal
     $scope.showCustomer = function(cust) {
       $scope.selected = cust
     }
 
-    $scope.animationsEnabled = false
+    // modal backdrop animation
+    $scope.animationsEnabled = true
 
     $scope.open = function (size) {
-
+      // open modal and load tpl
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'app/customer-portfolio/tpl/modal-customer-decision.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve: {
-          items: function () {
+          selectedCustomer: function () {
             return $scope.selected;
           }
         }
       });
-
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+      // add selected customer to $scope.selected
+      modalInstance.result.then(function (selectedCustomer) {
+        $scope.selected = selectedCustomer;
       })
     };
-
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-    // console.log($templateCache.get('./modal-customer-decision.html'))
-
-    $scope.selected = items;
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer) {
+    // re-add selectedCustomer to $scope.selected
+    $scope.selected = selectedCustomer;
 
     // $scope.ok = function () {
     //   $modalInstance.close($scope.selected.item);
     // };
 
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+    $scope.closeModal = function () {
+      $modalInstance.dismiss('close');
     };
   })
 
-.controller('AngularWayCtrl', AngularWayCtrl);
+.controller('LoadCustomersCtrl', LoadCustomersCtrl);
 
-function AngularWayCtrl($resource) {
+function LoadCustomersCtrl($resource) {
     var vm = this;
-    $resource('/api/customer').query().$promise.then(function(persons) {
-        vm.persons = persons;
+    $resource('/api/customer').query().$promise.then(function(customers) {
+        vm.customers = customers;
     });
 }
-
-  
