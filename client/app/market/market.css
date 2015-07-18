@@ -1,0 +1,11 @@
+.mini-dashboard {
+  float: left;
+  width: 100%;
+  background: #e8e8e8;
+  margin-bottom: 10px;
+  padding: 20px 10px 5px 10px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  margin: 0px;
+};

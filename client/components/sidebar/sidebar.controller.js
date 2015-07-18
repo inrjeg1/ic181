@@ -6,6 +6,9 @@ angular.module('atrExpApp')
       'title': 'Home',
       'link': '/'
     },{
+      'title': 'Market',
+      'link': '/market'
+    },{
       'title': 'Customer Portfolio',
       'link': '/customer-portfolio'
     }];

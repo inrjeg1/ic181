@@ -1,0 +1,134 @@
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Market</li>
+</ul>
+<!-- END BREADCRUMB -->
+
+<!-- START BREADCRUMB -->
+<div class="mini-dashboard">
+    <!-- TILES -->                
+    <div class="row">
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-danger tile-valign"><span class="fa fa-laptop"></span></a>                        
+        </div>                    
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-success tile-valign"><span class="fa fa-calendar"></span></a>
+        </div>                                        
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-warning tile-valign">New
+                <div class="informer informer-default dir-bl"><span class="fa fa-globe"></span> Lates Somethink</div>
+            </a>                        
+        </div>
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-info">
+                15
+                <p>September</p>                            
+                <div class="informer informer-default dir-tr"><span class="fa fa-calendar"></span></div>
+            </a>                        
+        </div>
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-default">
+                57%
+                <p>New Visitors</p>                            
+                <div class="informer informer-danger dir-tr"><span class="fa fa-caret-down"></span></div>
+            </a>                        
+        </div>
+        <div class="col-md-2">                        
+            <a href="#" class="tile tile-primary">
+                $25
+                <p>Buy It</p>                            
+                <div class="informer informer-default"><span class="fa fa-shopping-cart"></span></div>
+            </a>                        
+        </div>
+    </div>                       
+    <!-- END TILES -->
+</div>
+<!-- END BREADCRUMB -->
+
+<div class="page-title">
+    <h2>Market</h2>
+</div>
+
+<!-- PAGE CONTENT TABBED -->
+
+    
+<div class="col-md-12" style="margin-bottom:10px">
+  <div class="alert alert-info" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+  </div>
+</div>
+    
+
+<tabset>
+<tab heading="Small Prospects">
+<div class="tab-container">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="background-color:#f9f9f9">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Default</h3>
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">Hallo World!</div>
+            </div>
+        </div>
+    </div>
+</div>
+</tab>
+<tab heading="Big Prospects">
+<div class="tab-container">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="background-color:#f9f9f9">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Default</h3>
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" ng-controller="LoadMarketCtrl as load">
+                        <table datatable="ng" class="table datatable hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Country</th>
+                                    <th>Region</th>
+                                    <th>Industry</th>
+                                    <th>Buyer 1</th>
+                                    <th>Buyer 2</th>
+                                    <th>Buyer 3</th>
+                                    <th>Offer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="cust in load.customers">
+                                    <td>{{ cust.name }}</td>
+                                    <td>{{ cust.country }}</td>
+                                    <td>{{ cust.region }}</td>
+                                    <td>{{ cust.industry }}</td>
+                                    <td>{{ cust.buyerTpe1 }}</td>
+                                    <td>{{ cust.buyerTpe2 }}</td>
+                                    <td>{{ cust.buyerTpe3 }}</td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showCustomer(cust); open()">Make Offer</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</tab>
+</tabset>
+
+<!-- END PAGE CONTENT TABBED -->

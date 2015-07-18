@@ -46,14 +46,28 @@
  * Overrides
  */
 
-.tile {
+.as-panel-customer .tile {
     margin-bottom: 15px;
     font-size: 12px;
 }
 
-.tile .fa {
+.tile .label .fa {
     font-size: 12px;
     line-height: 14px;
+}
+
+.tile .input-group .fa {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.breadcrumb {
+  margin-bottom: 0px;
+  background: #d9d9d9;
+}
+
+.page-title {
+    padding: 15px 15px 5px 15px;
 }
 
 /**
@@ -63,7 +77,7 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .tab-content {
-    margin-top:-162px;
+    margin-top:-212px;
 }
 
 .panel .as-panel-customer {
