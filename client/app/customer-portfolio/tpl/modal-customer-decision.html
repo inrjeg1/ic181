@@ -37,11 +37,11 @@
             <p><span class="wi wi-day-sunny" style="font-size: 32px;line-height: 54px;"></span></p>
             <p>Excellent</p>
             <p>
-            <div ng-controller="ExampleController as c" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="c.exampleValue" />
+            <div ng-controller="SpinnerCtrl as spinner" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="spinner.val" />
             <div class="progress progress-small">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{c.exampleValue}}%;"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ spinner.val }}%;"></div>
             </div>
-            <p style="font-size:12px;">Acceptance Rate: {{c.exampleValue}}%</p>
+            <p style="font-size:12px;">Acceptance Rate: {{ spinner.val }}%</p>
         </div>
         </p>
         </span>
@@ -55,11 +55,11 @@
         <p><span class="wi wi-day-cloudy" style="font-size: 32px;line-height: 54px;"></span></p>
         <p>Good</p>
         <p>
-        <div ng-controller="ExampleController as c" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="c.exampleValue" />
+        <div ng-controller="SpinnerCtrl as spinner" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="spinner.val" />
         <div class="progress progress-small">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{c.exampleValue}}%;"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ spinner.val }}%;"></div>
         </div>
-        <p style="font-size:12px">Acceptance Rate: {{c.exampleValue}}%</p>
+        <p style="font-size:12px">Acceptance Rate: {{ spinner.val }}%</p>
     </div>
     </p>
     </span>
@@ -73,11 +73,11 @@
     <p><span class="wi wi-storm-showers" style="font-size: 32px;line-height: 54px;"></span></p>
     <p>Fair</p>
     <p>
-    <div ng-controller="ExampleController as c" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="c.exampleValue" />
+    <div ng-controller="SpinnerCtrl as spinner" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="spinner.val" />
     <div class="progress progress-small">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{c.exampleValue}}%;"></div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ spinner.val }}%;"></div>
     </div>
-    <p style="font-size:12px">Acceptance Rate: {{c.exampleValue}}%</p>
+    <p style="font-size:12px">Acceptance Rate: {{ spinner.val }}%</p>
 </div>
 </p>
 </span>

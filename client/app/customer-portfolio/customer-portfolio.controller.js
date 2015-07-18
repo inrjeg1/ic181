@@ -52,3 +52,26 @@ angular.module('atrExpApp')
         vm.customers = customers;
     });
 })
+
+.controller('SpinnerCtrl', SpinnerCtrl)
+      .directive('jqSpinner', jqSpinner);
+
+  function SpinnerCtrl() {
+      var spinner = this;
+      spinner.val = 0;
+  };
+
+  function jqSpinner() {
+      return {
+          restrict: 'A',
+          require: 'ngModel',
+          link: function (scope, element, attrs, spinner) {
+              element.spinner({
+                  spin: function (event, ui) {
+                      spinner.$setViewValue(ui.value);
+                  }
+              });
+          }
+      };
+  };
+

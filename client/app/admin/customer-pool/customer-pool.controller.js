@@ -26,25 +26,3 @@ angular.module('atrExpApp')
     // }
 
   })
-
-  .controller('ExampleController', ExampleController)
-        .directive('jqSpinner', jqSpinner);
-
-    function ExampleController() {
-        var c = this;
-        c.exampleValue = 0;
-    };
-
-    function jqSpinner() {
-        return {
-            restrict: 'A',
-            require: 'ngModel',
-            link: function (scope, element, attrs, c) {
-                element.spinner({
-                    spin: function (event, ui) {
-                        c.$setViewValue(ui.value);
-                    }
-                });
-            }
-        };
-    };
