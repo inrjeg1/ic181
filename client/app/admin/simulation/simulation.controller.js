@@ -81,7 +81,7 @@ angular.module('atrExpApp')
                 random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
                 console.log(random)
                 var multiplier = newValue * random
-                economies[i].data[j] = multiplier;
+                economies[i].data[j] = Number(multiplier);
               }
             }
             console.log('formule: ', $scope.chartData)

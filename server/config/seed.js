@@ -90,23 +90,32 @@ Economy.find({}).remove(function() {
     type: 'line',
     marker: true,
     hover: true
-  })
+  }, function() {
+      console.log('** Finished populating economy.')
+    }
+  );
 }); 
 
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
+    name: 'Team 1',
+    email: 'team1',
+    password: 'team1'
+  },{
     provider: 'local',
     role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
+    name: 'Emanuel',
+    email: 'emanuel@atradius.com',
+    password: 'admin'
+  },{
+    provider: 'local',
+    role: 'admin',
+    name: 'Jonathan',
+    email: 'jonathan@atradius.com',
     password: 'admin'
   }, function() {
-      console.log('finished populating users');
+      console.log('** Finished populating teams.');
     }
   );
 });
