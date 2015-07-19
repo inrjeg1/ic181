@@ -77,10 +77,13 @@ angular.module('atrExpApp')
               if (j == round) {
                 console.log('round: ', round)
                 console.log('j: ', j)
-                var random = Math.random() + 1 ;
-                random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
-                console.log(random)
-                var multiplier = newValue * random
+                // var random = Math.random() + 1 ;
+                // random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+                // console.log(random)
+                // var multiplier = newValue * random
+                var min = Math.floor(newValue - 2)
+                var max = Math.floor(newValue + 2)
+                var multiplier = Math.random() * (max - min) + min;
                 economies[i].data[j] = Number(multiplier);
               }
             }
