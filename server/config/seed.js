@@ -1,49 +1,112 @@
-// /**
-//  * Populate DB with sample data on server start
-//  * to disable, edit config/environment/index.js, and set `seedDB: false`
-//  */
+/**
+ * Populate DB with sample data on server start
+ * to disable, edit config/environment/index.js, and set `seedDB: false`
+ */
 
-// 'use strict';
+'use strict';
 
-// var Thing = require('../api/thing/thing.model');
-// var User = require('../api/user/user.model');
+var Economy = require('../api/economy/economy.model');
+var User = require('../api/user/user.model');
 
-// Thing.find({}).remove(function() {
-//   Thing.create({
-//     name : 'Development Tools',
-//     info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
-//   }, {
-//     name : 'Server and Client integration',
-//     info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
-//   }, {
-//     name : 'Smart Build System',
-//     info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-//   },  {
-//     name : 'Modular Structure',
-//     info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-//   },  {
-//     name : 'Optimized Build',
-//     info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-//   },{
-//     name : 'Deployment Ready',
-//     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-//   });
-// });
+Economy.find({}).remove(function() {
+  Economy.create({
+    name: 'The Netherlands',
+    code: 'nl',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#8085e9',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'United Kingdom',
+    code: 'uk',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#FFB5B5',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Belgium',
+    code: 'be',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#F0B9C8',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Denmark',
+    code: 'dk',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#FF7DFF',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'France',
+    code: 'fr',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#D881ED',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Germany',
+    code: 'de',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#B7B7FF',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Italy',
+    code: 'it',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#A6DEEE',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Spain',
+    code: 'es',
+    data: [ -4.6929656716436146, 0.9889368311036377, 1.0963423997163773, 1.6686230711638927, -0.5567911425791682, -1.7162656151689588, 5.891584895427804, 0.7 ],
+    color: '#CFE7E2',
+    draggableY: false,
+    type: 'spline',
+    marker: false,
+    hover: false
+  },{
+    name: 'Control',
+    code: 'control',
+    data: [ -3.56, 0.6, 1.39, 1.5, 0.28, -1.2, -3.09, 0.5 ],
+    color: '#ccc',
+    draggableY: true,
+    type: 'line',
+    marker: true,
+    hover: true
+  })
+}); 
 
-// User.find({}).remove(function() {
-//   User.create({
-//     provider: 'local',
-//     name: 'Test User',
-//     email: 'test@test.com',
-//     password: 'test'
-//   }, {
-//     provider: 'local',
-//     role: 'admin',
-//     name: 'Admin',
-//     email: 'admin@admin.com',
-//     password: 'admin'
-//   }, function() {
-//       console.log('finished populating users');
-//     }
-//   );
-// });
+User.find({}).remove(function() {
+  User.create({
+    provider: 'local',
+    name: 'Test User',
+    email: 'test@test.com',
+    password: 'test'
+  }, {
+    provider: 'local',
+    role: 'admin',
+    name: 'Admin',
+    email: 'admin@admin.com',
+    password: 'admin'
+  }, function() {
+      console.log('finished populating users');
+    }
+  );
+});

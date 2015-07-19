@@ -79,6 +79,7 @@ angular.module('atrExpApp')
                 console.log('j: ', j)
                 var random = Math.random() + 1 ;
                 random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
+                console.log(random)
                 var multiplier = newValue * random
                 economies[i].data[j] = multiplier;
               }
