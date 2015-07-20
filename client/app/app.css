@@ -46,6 +46,14 @@
  * Overrides
  */
 
+.profile .profile-data .profile-data-name {
+    font-size: 14px;
+}
+
+.profile .profile-data .profile-data-title {
+    font-size: 12px;
+}
+
 .as-panel-customer .tile {
     margin-bottom: 15px;
     font-size: 12px;
