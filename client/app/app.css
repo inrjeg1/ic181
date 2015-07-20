@@ -42,6 +42,17 @@
     margin-bottom: 10px;
 }
 
+.mini-dash-left {
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.mini-dash-right {
+    padding-left:0px;
+    padding-right:0px;
+    background-color:#e8e8e8;
+}
+
 /**
  * Overrides
  */
@@ -70,8 +81,9 @@
 }
 
 .breadcrumb {
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   background: #e8e8e8;
+  height: 50px;
 }
 
 .page-title {

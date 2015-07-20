@@ -26,19 +26,5 @@ angular.module('atrExpApp')
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };
-
-    $scope.exampleData = [
-       {
-           "key": "Capital",
-           "values": [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8]]
-       }
-    ];
-
-    $scope.xAxisTickFormatFunction = function(){
-        return function(d){
-            return d3.time.format('%b')(new Date(d));
-        }
-    }
-
     
   });

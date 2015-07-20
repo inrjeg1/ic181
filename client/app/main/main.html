@@ -1,7 +1,12 @@
 <!-- START BREADCRUMB -->
-<ul class="breadcrumb">
-    <li class="active">Home</li>
-</ul>
+<div class="col-md-6 mini-dash-left">
+    <ul class="breadcrumb">
+        <li class="active">Home</li>
+    </ul>
+</div>
+<div class="col-md-6  text-right mini-dash-right">
+    <div ng-include="'components/minidash/minidash.html'"></div>
+</div>
 <!-- END BREADCRUMB -->
 <div class="page-title">
     <h2>Home</h2>
@@ -16,16 +21,6 @@
                 </div>
                 <div class="panel-body">
                     DASHBOARD WILL BE LOADED HERE...    
-                    <nvd3-discrete-bar-chart
-                        data="exampleData"
-                        id="exampleId"
-                        showXAxis="false"
-                        showYAxis="false"
-                        xAxisTickFormat="xAxisTickFormatFunction()"
-                        width="170"
-                        height="120">
-                            <svg></svg>
-                    </nvd3-discrete-bar-chart>
                 </div>
             </div>
         </div>

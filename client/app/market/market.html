@@ -1,49 +1,13 @@
-<!-- START MINI DASHBOARD -->
-<div class="mini-dashboard">
-    <!-- TILES -->                
-    <div class="row">
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-danger tile-valign"><span class="fa fa-laptop"></span></a>                        
-        </div>                    
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-success tile-valign"><span class="fa fa-calendar"></span></a>
-        </div>                                        
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-warning tile-valign">New
-                <div class="informer informer-default dir-bl"><span class="fa fa-globe"></span> Lates Somethink</div>
-            </a>                        
-        </div>
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-info">
-                15
-                <p>September</p>                            
-                <div class="informer informer-default dir-tr"><span class="fa fa-calendar"></span></div>
-            </a>                        
-        </div>
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-default">
-                57%
-                <p>New Visitors</p>                            
-                <div class="informer informer-danger dir-tr"><span class="fa fa-caret-down"></span></div>
-            </a>                        
-        </div>
-        <div class="col-md-2">                        
-            <a href="#" class="tile tile-primary">
-                $25
-                <p>Buy It</p>                            
-                <div class="informer informer-default"><span class="fa fa-shopping-cart"></span></div>
-            </a>                        
-        </div>
-    </div>                       
-    <!-- END TILES -->
-</div>
-<!-- END MINI DASHBOARD -->
-
 <!-- START BREADCRUMB -->
-<ul class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li class="active">Market</li>
-</ul>
+<div class="col-md-6 mini-dash-left">
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li class="active">Market</li>
+    </ul>
+</div>
+<div class="col-md-6  text-right mini-dash-right">
+    <div ng-include="'components/minidash/minidash.html'"></div>
+</div>
 <!-- END BREADCRUMB -->
 
 <div class="col-md-12" style="margin-top:15px">
