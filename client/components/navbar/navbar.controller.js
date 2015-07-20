@@ -20,4 +20,13 @@ angular.module('atrExpApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
+    $scope.makeActive = ''
+    
+    $scope.toggleLogout = function(){
+    if ($scope.makeActive === '')
+        $scope.makeActive = 'active'
+      else
+        $scope.makeActive = ''
+    };
   });
