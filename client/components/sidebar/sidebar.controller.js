@@ -13,7 +13,7 @@ angular.module('atrExpApp')
     },{
       'title': 'Customer Portfolio',
       'link': '/customer-portfolio',
-      'icon': 'users'
+      'icon': 'search-plus'
     }];
 
     $scope.isCollapsed = true;
