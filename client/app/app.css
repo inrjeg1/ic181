@@ -74,6 +74,14 @@
  * UI.BOOTSTRAP Directive
  */
 
+ .add-margin {
+    margin-left: 220px;
+ }
+
+ .remove-margin {
+    margin-left: 0px;
+ }
+
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .tab-content {

@@ -48,13 +48,14 @@
     <![endif]-->
     <!-- Add your site or application content here -->
     <!-- START PAGE CONTAINER -->
+    <div ng-controller="SidebarWidthCtrl">
     <div class="page-container">
         <!-- START PAGE SIDEBAR -->
         <div ng-include="'components/sidebar/sidebar.html'"></div>
         <!-- END PAGE SIDEBAR -->
 
         <!-- PAGE CONTENT -->
-        <div class="page-content">
+        <div class="page-content" ng-class="isLoginPage('/login')">
 
             <div ng-include="'components/navbar/navbar.html'"></div>
 
@@ -63,6 +64,7 @@
             <!-- END PAGE CONTENT WRAPPER -->
         </div>
         <!-- END PAGE CONTENT -->
+    </div>
     </div>
     <!-- END PAGE CONTAINER -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -134,6 +136,27 @@
     <!-- endbuild -->
     <!-- TEMPLATE SCRIPTS -->
     <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script>
+        'use strict';
+
+        angular.module('atrExpApp')
+          .controller('SidebarWidthCtrl', function ($rootScope, $scope, $location) {
+
+            $scope.addMargin = 'add-margin'
+            $scope.removeMargin = 'remove-margin'
+
+            $rootScope.$on('$stateChangeStart', 
+            function(event, toState, toParams, fromState, fromParams){ 
+                $scope.isLoginPage = function(route) {
+                  if (route === $location.path())
+                    return $scope.removeMargin
+                  else
+                    return $scope.addMargin 
+                };
+            })
+          });
+
+    </script>
     <!-- START PRELOADS -->
 <audio id="audio-alert" src="assets/audio/alert.mp3" preload="auto"></audio>
 <audio id="audio-fail" src="assets/audio/fail.mp3" preload="auto"></audio>
