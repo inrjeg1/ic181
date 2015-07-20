@@ -4,13 +4,16 @@ angular.module('atrExpApp')
   .controller('SidebarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
-      'link': '/'
+      'link': '/',
+      'icon': 'dashboard'
     },{
       'title': 'Market',
-      'link': '/market'
+      'link': '/market',
+      'icon': 'globe'
     },{
       'title': 'Customer Portfolio',
-      'link': '/customer-portfolio'
+      'link': '/customer-portfolio',
+      'icon': 'users'
     }];
 
     $scope.isCollapsed = true;
