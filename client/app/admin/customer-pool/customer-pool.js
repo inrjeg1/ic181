@@ -6,6 +6,7 @@ angular.module('atrExpApp')
       .state('customer-pool', {
         url: '/admin/customer-pool',
         templateUrl: 'app/admin/customer-pool/customer-pool.html',
-        controller: 'CustomerPoolCtrl'
+        controller: 'CustomerPoolCtrl',
+        authenticate: true
       });
   });

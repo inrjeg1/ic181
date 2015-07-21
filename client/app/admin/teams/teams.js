@@ -6,6 +6,7 @@ angular.module('atrExpApp')
       .state('teams', {
         url: '/admin/teams',
         templateUrl: 'app/admin/teams/teams.html',
-        controller: 'TeamsCtrl'
+        controller: 'TeamsCtrl',
+        authenticate: true
       });
   });

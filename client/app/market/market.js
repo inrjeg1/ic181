@@ -6,6 +6,7 @@ angular.module('atrExpApp')
       .state('market', {
         url: '/market',
         templateUrl: 'app/market/market.html',
-        controller: 'MarketCtrl'
+        controller: 'MarketCtrl',
+        authenticate: true
       });
   });

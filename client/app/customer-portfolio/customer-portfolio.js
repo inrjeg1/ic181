@@ -6,6 +6,7 @@ angular.module('atrExpApp')
       .state('customer-portfolio', {
         url: '/customer-portfolio',
         templateUrl: 'app/customer-portfolio/customer-portfolio.html',
-        controller: 'CustomerPortfolioCtrl'
+        controller: 'CustomerPortfolioCtrl',
+        authenticate: true
       });
   });
