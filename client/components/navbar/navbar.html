@@ -6,7 +6,7 @@
     </li>
     <!-- END TOGGLE NAVIGATION -->
     <!-- POWER OFF -->
-    <li class="xn-icon-button pull-right last" ng-show="isLoggedIn()" ng-class="makeActive">
+    <li class="xn-icon-button pull-right last" ng-show="isLoggedIn()" ng-class="logoutActive">
         <a href="#" ng-click="toggleLogout()"><span class="fa fa-power-off"></span></a>
         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
             <div class="panel-heading">
@@ -22,8 +22,8 @@
     </li>
     <!-- END POWER OFF -->
     <!-- TASKS -->
-    <li class="xn-icon-button pull-right">
-        <a href="#"><span class="fa fa-cogs"></span></a>
+    <li class="xn-icon-button pull-right" ng-class="actionsActive">
+        <a href="#" ng-click="toggleActions()"><span class="fa fa-cogs"></span></a>
         <!-- <div class="informer informer-warning">!</div> -->
         <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
             <div class="panel-heading">

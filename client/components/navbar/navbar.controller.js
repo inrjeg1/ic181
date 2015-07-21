@@ -21,12 +21,20 @@ angular.module('atrExpApp')
       return route === $location.path();
     };
 
-    $scope.makeActive = ''
+    $scope.logoutActive = ''
+    $scope.actionsActive = ''
     
     $scope.toggleLogout = function(){
-    if ($scope.makeActive === '')
-        $scope.makeActive = 'active'
+    if ($scope.logoutActive === '')
+        $scope.logoutActive = 'active'
       else
-        $scope.makeActive = ''
+        $scope.logoutActive = ''
+    };
+
+    $scope.toggleActions = function(){
+    if ($scope.actionsActive === '')
+        $scope.actionsActive = 'active'
+      else
+        $scope.actionsActive = ''
     };
   });
