@@ -108,7 +108,11 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 .tab-content {
-    margin-top:-245px;
+    /*margin-top:-245px;*/
+}
+
+.nav-tabs, .nav-tabs.nav-justified {
+    height: 40px;
 }
 
 .panel .as-panel-customer {

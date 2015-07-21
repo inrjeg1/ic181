@@ -156,7 +156,10 @@ angular.module('atrExpApp')
 
     $scope.reflow = function () {
       $scope.$broadcast('highchartsng.reflow');
-      // console.log('reflow!!!')
+      setTimeout(function () { 
+        // $(element).highcharts().reflow(); 
+        $scope.$broadcast('highchartsng.reflow');
+      }, 0);
     }
 });
 
