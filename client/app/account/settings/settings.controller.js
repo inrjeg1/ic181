@@ -18,4 +18,29 @@ angular.module('atrExpApp')
         });
       }
 		};
-  });
+
+    $scope.languageToggle = ''
+    $scope.iconAngle = 'angle-down'
+
+    $scope.toggleLanguage = function() {  
+      if ($scope.languageToggle === '') {
+        $scope.languageToggle = 'panel-toggled'
+      } else {
+        $scope.languageToggle = ''
+      }
+      if ($scope.iconAngle === 'angle-down') {
+        $scope.iconAngle = 'angle-up'
+      } else {
+        $scope.iconAngle = 'angle-down'
+      }
+    }
+
+    $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.teamSlogan = 'hi'
+    // $scope.$watch('teamSlogan', function(newValue, oldValue) {
+    //   if (newValue !== oldValue) {
+    //     console.log('User updated:', newValue);
+    //     $scope.teamSlogan = newValue
+    //   }
+    // }, true);
+  })

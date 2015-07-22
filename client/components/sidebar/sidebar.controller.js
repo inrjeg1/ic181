@@ -26,6 +26,19 @@ angular.module('atrExpApp')
       return route === $location.path();
     };
 
+    angular.element(document).ready(function() {
+      var controllerElement = document.querySelector('slogan');
+      var controllerScope = angular.element(controllerElement).scope();
+      $scope.slogan = controllerScope.sloganName
+      console.log('controllerScope: ', controllerScope.teamSlogan);
+      // $scope.$watch('controllerScope.teamSlogan', function(newValue, oldValue) {
+      //   if (newValue !== oldValue) {
+      //     console.log('User updated:', newValue);
+      //     controllerScope.teamSlogan = newValue
+      //   }
+      // }, true);
+    });
+
     // var w = angular.element($window);
     // $scope.getHeight = function() {
     //     return w.height();
