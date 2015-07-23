@@ -81,9 +81,9 @@ angular.module('atrExpApp')
                 // random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
                 // console.log(random)
                 // var multiplier = newValue * random
-                var min = Math.floor(newValue - 2)
-                var max = Math.floor(newValue + 2)
-                var multiplier = Math.random() * (max - min) + min;
+                var min = Math.floor(newValue - 1)
+                var max = Math.floor(newValue + 1)
+                var multiplier = Math.random() * (max - min) + min + 1;
                 economies[i].data[j] = Number(multiplier);
               }
             }
