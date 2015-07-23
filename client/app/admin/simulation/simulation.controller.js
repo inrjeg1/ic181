@@ -81,10 +81,10 @@ angular.module('atrExpApp')
                 // random *= Math.floor(Math.random()*2) == 1 ? 1 : -1;
                 // console.log(random)
                 // var multiplier = newValue * random
-                var min = Math.floor(newValue - 1)
-                var max = Math.floor(newValue + 1)
-                var multiplier = Math.random() * (max - min) + min + 1;
-                economies[i].data[j] = Number(multiplier);
+                var min = (Number(newValue) - 0.2)
+                var max = (Number(newValue) + 0.2)
+                var multiplier = Math.random() * (max - min) + min;
+                economies[i].data[j] = multiplier;
               }
             }
             console.log('formule: ', $scope.chartData)
