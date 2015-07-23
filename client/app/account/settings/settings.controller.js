@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('atrExpApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, toastr) {
     $scope.errors = {};
 
     $scope.changePassword = function(form) {
@@ -35,8 +35,31 @@ angular.module('atrExpApp')
       }
     }
 
-    $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.teamSlogan = 'hi'
+    $scope.teamId = Auth.getCurrentUser()._id;
+    // $http.get('/api/users/').success(function (economies) {
+
+    // });
+
+    $scope.team = Auth.getCurrentUser;
+
+    // $scope.updateTeam = function (element) {
+    //   $http.put('/api/users/' + $scope.teamId, {slogan: element});
+    //   console.log('Element: ', element)
+    // }
+
+    $scope.changeSlogan = function (form) {
+      Auth.changeSlogan($scope.team().slogan)
+      .then(function() {
+        $scope.message = 'Slogan successfully changed.';
+        toastr.success('New slogan is saved in the database.', 'Saved!');
+      })
+      .catch(function() {
+        $scope.errors.other = 'Incorrect slogan'
+        $scope.message = ''
+      })
+    }
+
+    // $scope.teamSlogan = Auth.getCurrentUser;
     // $scope.$watch('teamSlogan', function(newValue, oldValue) {
     //   if (newValue !== oldValue) {
     //     console.log('User updated:', newValue);
@@ -44,3 +67,4 @@ angular.module('atrExpApp')
     //   }
     // }, true);
   })
+

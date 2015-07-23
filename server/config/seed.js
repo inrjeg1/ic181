@@ -101,19 +101,22 @@ User.find({}).remove(function() {
     provider: 'local',
     name: 'Team 1',
     email: 'team1',
-    password: 'team1'
+    password: 'team1',
+    slogan: 'seed'
   },{
     provider: 'local',
     role: 'admin',
     name: 'Emanuel',
     email: 'emanuel@atradius.com',
-    password: 'admin'
+    password: 'admin',
+    slogan: 'seed'
   },{
     provider: 'local',
     role: 'admin',
     name: 'Jonathan',
     email: 'jonathan@atradius.com',
-    password: 'admin'
+    password: 'admin',
+    slogan: 'seed'
   }, function() {
       console.log('** Finished populating teams.');
     }

@@ -20,25 +20,25 @@
     <div class="row">
         <div class="col-md-12">
             
-            <form class="form-horizontal">
+            <form class="form-horizontal" name="form" ng-submit="changeSlogan(form)">
             <div class="panel panel-default" ng-class="languageToggle">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Team:</strong> {{getCurrentUser().name}}</h3>
+                    <h3 class="panel-title"><strong>Team:</strong> {{team().name}}</h3>
                     <ul class="panel-controls">
                         <li><a href="#" ng-click="toggleLanguage()" class="panel-collapse"><span class="fa fa-{{iconAngle}}"></span></a></li>
                     </ul>
                 </div>
                 <div class="panel-body">
-                    <p>This is non libero bibendum, scelerisque arcu id, placerat nunc. Integer ullamcorper rutrum dui eget porta. Fusce enim dui, pulvinar a augue nec, dapibus hendrerit mauris. Praesent efficitur, elit non convallis faucibus, enim sapien suscipit mi, sit amet fringilla felis arcu id sem. Phasellus semper felis in odio convallis, et venenatis nisl posuere. Morbi non aliquet magna, a consectetur risus. Vivamus quis tellus eros. Nulla sagittis nisi sit amet orci consectetur laoreet. Vivamus volutpat erat ac vulputate laoreet. Phasellus eu ipsum massa.</p>
+                    <p>Lorum ipsum</p>
                 </div>
                 <div class="panel-body">                                                                        
                     
                     <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Text Field</label>
+                        <label class="col-md-3 col-xs-12 control-label">Slogan</label>
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <input type="text" class="form-control" ng-model="teamSlogan"/>
+                                <input type="text" class="form-control" ng-model="team().slogan" />
                             </div>                                            
                             <span class="help-block">This is sample of text field</span>
                         </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="panel-footer">
                     <button class="btn btn-default">Clear Form</button>                                    
-                    <button class="btn btn-primary pull-right">Submit</button>
+                    <button class="btn btn-primary pull-right" type="submit">Submit</button>
                 </div>
             </div>
             </form>
