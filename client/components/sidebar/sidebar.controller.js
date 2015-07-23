@@ -49,4 +49,4 @@ angular.module('atrExpApp')
     //     $scope.$apply();
     // });
 
-  });
+  })
