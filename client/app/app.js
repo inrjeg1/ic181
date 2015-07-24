@@ -11,8 +11,7 @@ angular.module('atrExpApp', [
   'ngAnimate',
   'datatables',
   'ngResource',
-  'nvd3ChartDirectives',
-  'ngTagsInput'
+  'nvd3ChartDirectives'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
