@@ -92,6 +92,18 @@ angular.module('atrExpApp')
         }).$promise;
       },
 
+      changeSlogan: function(slogan, callback) {
+        var cb = callback || angular.noop;
+
+        return User.changeSlogan({ id: currentUser._id }, {
+          slogan: slogan
+        }, function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
+      },
+
       /**
        * Gets all available info on authenticated user
        *
