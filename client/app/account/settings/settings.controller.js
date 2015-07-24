@@ -35,12 +35,12 @@ angular.module('atrExpApp')
       }
     }
 
-    $scope.teamId = Auth.getCurrentUser()._id;
-    // $http.get('/api/users/').success(function (economies) {
-
-    // });
 
     $scope.team = Auth.getCurrentUser;
+
+    // $scope.$watch('team.slogan',function () {
+    //     console.log('$scope.team changed: ', $scope.team)
+    // })
 
     // $scope.updateTeam = function (element) {
     //   $http.put('/api/users/' + $scope.teamId, {slogan: element});
