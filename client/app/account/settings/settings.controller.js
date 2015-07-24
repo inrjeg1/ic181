@@ -66,9 +66,4 @@ angular.module('atrExpApp')
     //     $scope.teamSlogan = newValue
     //   }
     // }, true);
-    $scope.tags = [
-      { text: 'Tag1' },
-      { text: 'Tag2' },
-      { text: 'Tag3' }
-    ];
   })
