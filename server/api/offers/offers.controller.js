@@ -45,10 +45,10 @@ exports.update = function(req, res) {
 
 // Deletes an offer from the DB.
 exports.destroy = function(req, res) {
-  Offer.findById(req.params.id, function (err, customer) {
+  Offer.findById(req.params.id, function (err, offer) {
     if(err) { return handleError(res, err); }
-    if(!customer) { return res.send(404); }
-    customer.remove(function(err) {
+    if(!offer) { return res.send(404); }
+    offer.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });

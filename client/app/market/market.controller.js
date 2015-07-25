@@ -42,7 +42,13 @@ angular.module('atrExpApp')
     $scope.closeModal = function () {
       $modalInstance.dismiss('close');
     };
-  })
+  
+    //add offer
+    $scope.addOffer = function() {
+      $http.post('/api/offers', { team: "Jonathan", customer: $scope.selected, price:20,riskacceptance:90 });
+      //$scope.closeModal()
+      };
+})
 
 .controller('LoadMarketCtrl', function LoadMarketCtrl($resource) {
     var vm = this;

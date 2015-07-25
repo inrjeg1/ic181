@@ -3,12 +3,12 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var CustomerSchema = new Schema({
-  offerid: String,
+var OfferSchema = new Schema({
+  __v: Number, 
   team: String,
   customer: String,
-  price: String,
-  riskacceptance: String,
+  price: Number,
+  riskacceptance: Number,
 });
 
-module.exports = mongoose.model('Offers', OfferSchema);
+module.exports = mongoose.model('Offer', OfferSchema);
