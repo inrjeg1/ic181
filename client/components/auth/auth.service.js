@@ -92,11 +92,12 @@ angular.module('atrExpApp')
         }).$promise;
       },
 
-      changeSlogan: function(slogan, callback) {
+      teamSettings: function(slogan, members, callback) {
         var cb = callback || angular.noop;
 
-        return User.changeSlogan({ id: currentUser._id }, {
-          slogan: slogan
+        return User.teamSettings({ id: currentUser._id }, {
+          slogan: slogan,
+          members: members
         }, function(user) {
           return cb(user);
         }, function(err) {

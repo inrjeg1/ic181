@@ -80,14 +80,15 @@ exports.changePassword = function(req, res, next) {
 };
 
 /**
- * Change slogan
+ * Change teamSettings
  */
-exports.changeSlogan = function(req, res, next) {
+exports.teamSettings = function(req, res, next) {
   var userId = req.user._id;
   var newSlogan = String(req.body.slogan);
-
+  var newMembers = req.body.members
   User.findById(userId, function (err, user) {
     user.slogan = newSlogan
+    user.members = newMembers
     user.save(function(err) {
       if (err) return validationError(res, err);
       res.send(200);
