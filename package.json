@@ -1,6 +1,11 @@
 {
   "name": "atr-exp",
-  "version": "0.0.0",
+  "version": "0.1.1",
+  "author": "Emanuel de Graaff <e.w.degraaff@atradius.com>",
+  "contributors": [{
+    "name": "Jonathan Elsen",
+    "email": ""
+  }],
   "main": "server/app.js",
   "dependencies": {
     "express": "~4.0.0",
