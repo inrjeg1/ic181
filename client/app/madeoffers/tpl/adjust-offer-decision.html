@@ -10,7 +10,7 @@
             <div style="font-size:12px;"><h6>Customer Details</h6></div>
             <div class="col-md-3">
                 <img src="assets/img/flags/{{ selected.countryCode }}.png" width="32" height="32" style="margin-bottom:4px">
-                <p style="margin-top:2px;line-height:14px;">{{offerCustomer.country}}<small style="color:#bbb"><br>({{ selected.industry }} Sector)</small></p>
+                <p style="margin-top:2px;line-height:14px;">{{offercust.country}}<small style="color:#bbb"><br>({{ selected.industry }} Sector)</small></p>
             </div>
             <div class="col-md-3">
                 <span class="label label-warning label-form"><span class="fa fa-cogs"></span> 80+</span>
@@ -21,7 +21,7 @@
                 <p style="line-height:14px;margin-top:2px;">Good Risk<small style="color:#bbb"><br>Overall Risk Level</small></p>
             </div>
             <div class="col-md-3">
-                <span style="font-size:28px;line-height:36px;">{{Math.round(selected.buyerTpe1 + selected.buyerTpe2 + selected.buyerTpe3)/1000000}}</span>
+                <span style="font-size:28px;line-height:36px;">{{(selected.buyerTpe1 + selected.buyerTpe2 + selected.buyerTpe3)/1000000}}</span>
                 <p style="margin-top:2px;line-height:14px;">Turnover<small style="color:#bbb"><br>In million Euro</small></p>
             </div>
             </span>
@@ -79,7 +79,7 @@
     <p><span class="wi wi-storm-showers" style="font-size: 32px;line-height: 54px;"></span></p>
     <p>Fair</p>
     <p>
-    <div ng-controller="SpinnerCtrl as spinner" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="spinner.val" />
+    <div ng-controller="SpinnerCtrl as spinner" style="margin-top:10px;"><input jq-spinner type="text" class="form-control spinner_default" ng-model="spinner.val"/>
     <div class="progress progress-small">
         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: {{ spinner.val }}%;"></div>
     </div>

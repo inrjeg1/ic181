@@ -3,18 +3,15 @@
 angular.module('atrExpApp')
   .controller('MadeOffersCtrl', function ($scope, $modal, $http) {
 
-    // load selected customer in modal
+    // load selected offer in modal
     $scope.showOffer = function(selectedOffer) {
-      $scope.selected = selectedOffer
-      $scope.offerCustomer = function(offerCustomer){
-        $http.get('/api/customer/' + selected.customer_id, offerCustomer)
-             .success(function(data){alert("success")})
-             .error(function(err){alert(err)});
-        console.log(offerCustomer)
-        alert(offerCustomer)
-      }
-
-    }
+      $scope.selected = selectedOffer     
+      
+      $http.get('/api/customer/' + $scope.selected.customer_id).success(function(stuff){
+        $scope.offercust = stuff
+        console.log($scope.offercust)
+      }).error(function(err){alert(err)})
+      };
 
     // modal backdrop animation
     $scope.animationsEnabled = true
@@ -29,24 +26,24 @@ angular.module('atrExpApp')
         resolve: {
           selectedOffer: function () {
             return $scope.selected;
+          },
+          offercust: function(){
+            return $scope.offercust;
           }
+
         }
       });
-      // add selected customer to $scope.selected
-      modalInstance.result.then(function (selectedOffer) {
+      // add selected offer to $scope.selected
+      modalInstance.result.then(function (selectedOffer, offercust, $scope) {
         $scope.selected = selectedOffer;
+        $scope.offercust = offercust;
       })
     };
   })
 
 .controller('AdjustOfferInstanceCtrl', function ($scope, $modalInstance, selectedOffer, $http) {
-    // re-add selectedCustomer to $scope.selected
+    // re-add selectedOffer to $scope.selected
     $scope.selected = selectedOffer;
-    
-
-    // $scope.ok = function () {
-    //   $modalInstance.close($scope.selected.item);
-    // };
 
     $scope.closeModal = function () {
       $modalInstance.dismiss('close');
@@ -56,7 +53,7 @@ angular.module('atrExpApp')
     $scope.addOffer = function() {
       
       console.log($scope.selected)
-      var thisoffer = {team: "Test", customer: $scope.selected.name, price: 20, riskacceptance: 90}
+      var thisoffer = {team: "Test", customer: $scope.selected.customer_name, price: 20, riskacceptance: 90}
       console.log(thisoffer)
 
     
@@ -79,9 +76,9 @@ angular.module('atrExpApp')
 .controller('SpinnerCtrl', SpinnerCtrl)
       .directive('jqSpinner', jqSpinner);
 
-  function SpinnerCtrl($scope) {
+  function SpinnerCtrl() {
       var spinner = this;
-      spinner.val = $scope.selected.riskacceptance;
+      spinner.val = 0;
   };
 
   function jqSpinner() {
@@ -89,8 +86,8 @@ angular.module('atrExpApp')
           restrict: 'A',
           require: 'ngModel',
           link: function (scope, element, attrs, spinner) {
-              element.spinner({
-                  spin: function (event, ui) {
+                      element.spinner({
+                      spin: function (event, ui) {
                       spinner.$setViewValue(ui.value);
                   }
               });

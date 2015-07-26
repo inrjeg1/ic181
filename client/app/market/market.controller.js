@@ -49,7 +49,7 @@ angular.module('atrExpApp')
       console.log($scope.selected)
       var thisoffer = {
         team: "Atradius Credit Insurance", 
-        customer_id: $scope.selected.id, 
+        customer_id: $scope.selected._id, 
         customer_name: $scope.selected.name, 
         price: 20, 
         riskacceptance: 90
