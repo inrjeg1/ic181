@@ -47,9 +47,15 @@ angular.module('atrExpApp')
     $scope.addOffer = function() {
       
       console.log($scope.selected)
-      var thisoffer = {team: "Atradius Credit Insurance", customer: $scope.selected.name, price: 20, riskacceptance: 90}
-      console.log(thisoffer)
+      var thisoffer = {
+        team: "Atradius Credit Insurance", 
+        customer_id: $scope.selected.id, 
+        customer_name: $scope.selected.name, 
+        price: 20, 
+        riskacceptance: 90
+      }
 
+      console.log(thisoffer)
     
       $http.post('/api/offer', thisoffer)
            .success(function(data){alert("success")})

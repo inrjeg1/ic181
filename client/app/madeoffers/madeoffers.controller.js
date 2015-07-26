@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('atrExpApp')
-  .controller('MadeOffersCtrl', function ($scope, $modal) {
+  .controller('MadeOffersCtrl', function ($scope, $modal, $http) {
 
     // load selected customer in modal
-    $scope.showCustomer = function(cust) {
-      $scope.selected = cust
+    $scope.showOffer = function(selectedOffer) {
+      $scope.selected = selectedOffer
+      $scope.offerCustomer = function(offerCustomer){
+        $http.get('/api/customer/' + selected.customer_id, offerCustomer)
+             .success(function(data){alert("success")})
+             .error(function(err){alert(err)});
+        console.log(offerCustomer)
+        alert(offerCustomer)
+      }
+
     }
 
     // modal backdrop animation
@@ -15,25 +23,26 @@ angular.module('atrExpApp')
       // open modal and load tpl
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
-        templateUrl: 'app/market/tpl/modal-customer-decision.html',
-        controller: 'ModalInstanceCtrl',
+        templateUrl: 'app/madeoffers/tpl/adjust-offer-decision.html',
+        controller: 'AdjustOfferInstanceCtrl',
         size: size,
         resolve: {
-          selectedCustomer: function () {
+          selectedOffer: function () {
             return $scope.selected;
           }
         }
       });
       // add selected customer to $scope.selected
-      modalInstance.result.then(function (selectedCustomer) {
-        $scope.selected = selectedCustomer;
+      modalInstance.result.then(function (selectedOffer) {
+        $scope.selected = selectedOffer;
       })
     };
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, $http) {
+.controller('AdjustOfferInstanceCtrl', function ($scope, $modalInstance, selectedOffer, $http) {
     // re-add selectedCustomer to $scope.selected
-    $scope.selected = selectedCustomer;
+    $scope.selected = selectedOffer;
+    
 
     // $scope.ok = function () {
     //   $modalInstance.close($scope.selected.item);
@@ -59,7 +68,7 @@ angular.module('atrExpApp')
       };
 })
 
-.controller('LoadMadeOffersCtrl', function LoadMarketCtrl($resource) {
+.controller('LoadMadeOffersCtrl', function LoadMadeOffersCtrl($resource) {
     var vm = this;
     // fetch data with $resource
     $resource('/api/offer').query().$promise.then(function(offers) {
@@ -70,9 +79,9 @@ angular.module('atrExpApp')
 .controller('SpinnerCtrl', SpinnerCtrl)
       .directive('jqSpinner', jqSpinner);
 
-  function SpinnerCtrl() {
+  function SpinnerCtrl($scope) {
       var spinner = this;
-      spinner.val = 0;
+      spinner.val = $scope.selected.riskacceptance;
   };
 
   function jqSpinner() {

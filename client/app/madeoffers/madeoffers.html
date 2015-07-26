@@ -70,10 +70,10 @@
                             <tbody>
                                 <tr ng-repeat="offer in load.offers">
                                     <td>{{ offer.team }}</td>
-                                    <td>{{ offer.customer }}</td>
+                                    <td>{{ offer.customer_name }}</td>
                                     <td>{{ offer.price }}</td>
                                     <td>{{ offer.riskacceptance }}</td>
-                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showCustomer(cust); open()">Amend Offer</button></td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); open()">Amend Offer</button></td>
                                 </tr>
                             </tbody>
                         </table>

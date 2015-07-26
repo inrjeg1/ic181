@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 
 var OfferSchema = new Schema({
   team: String,
-  customer: String,
+  customer_id: String,
+  customer_name: String,
   price: Number,
   riskacceptance: Number,
 });
