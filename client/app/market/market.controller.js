@@ -31,7 +31,7 @@ angular.module('atrExpApp')
     };
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer) {
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, $http) {
     // re-add selectedCustomer to $scope.selected
     $scope.selected = selectedCustomer;
 
@@ -45,8 +45,14 @@ angular.module('atrExpApp')
   
     //add offer
     $scope.addOffer = function() {
-      $http.post('/api/offers', { team: "Jonathan", customer: $scope.selected, price:20,riskacceptance:90 });
-      //$scope.closeModal()
+      
+      console.log($scope.selected)
+      var thisoffer = {team: "Jonathan", customer: $scope.selected, price: 20, riskacceptance: 90}
+      $http.post('/api/offers/', thisoffer)
+      //alert("success")
+
+      $scope.closeModal()
+       alert("success")     
       };
 })
 
