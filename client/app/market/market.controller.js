@@ -48,11 +48,15 @@ angular.module('atrExpApp')
       
       console.log($scope.selected)
       var thisoffer = {team: "Jonathan", customer: $scope.selected.name, price: 20, riskacceptance: 90}
-      $http.post('/api/offers', thisoffer)
+      console.log(thisoffer)
+    
+      $http.post('/api/offer', thisoffer)
+           .success(function(data){alert("success")})
+           .error(function(err){alert(err)});
+      
       //alert("success")
 
-      $scope.closeModal()
-       alert("success")     
+      $scope.closeModal()    
       };
 })
 

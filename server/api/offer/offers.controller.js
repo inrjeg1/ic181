@@ -29,9 +29,9 @@ exports.show = function(req, res) {
 //};
 
 exports.create = function(req, res) {
-  Offer.create(req.body, function(err, offers) {
+  Offer.create(req.body, function(err, offer) {
     if(err) { return handleError(res, err); }
-    return res.json(201, offers);
+    return res.json(201, offer);
   });
 };
 
