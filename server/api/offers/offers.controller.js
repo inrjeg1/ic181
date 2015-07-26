@@ -21,11 +21,17 @@ exports.show = function(req, res) {
 };
 
 // Creates a new offer in the DB.
+//exports.create = function(req, res) {
+ // Offer.create(req.body, function(err, offer) {
+  //  if(err) { return handleError(res, err); }
+   // return res.json(201, offer);
+  //});
+//};
+
 exports.create = function(req, res) {
-  Offer.create(req.body, function(err, offer) {
+  Offer.create(req.body, function(err, offers) {
     if(err) { return handleError(res, err); }
-    console.log('offer: ', offer);
-    return res.json(201, offer);
+    return res.json(201, offers);
   });
 };
 

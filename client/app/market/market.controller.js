@@ -47,8 +47,8 @@ angular.module('atrExpApp')
     $scope.addOffer = function() {
       
       console.log($scope.selected)
-      var thisoffer = {team: "Jonathan", customer: $scope.selected, price: 20, riskacceptance: 90}
-      $http.post('/api/offers/', thisoffer)
+      var thisoffer = {team: "Jonathan", customer: $scope.selected.name, price: 20, riskacceptance: 90}
+      $http.post('/api/offers', thisoffer)
       //alert("success")
 
       $scope.closeModal()
