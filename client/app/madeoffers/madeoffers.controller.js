@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('atrExpApp')
-  .controller('MarketCtrl', function ($scope, $modal) {
+  .controller('MadeOffersCtrl', function ($scope, $modal) {
 
     // load selected customer in modal
     $scope.showCustomer = function(cust) {
@@ -47,7 +47,7 @@ angular.module('atrExpApp')
     $scope.addOffer = function() {
       
       console.log($scope.selected)
-      var thisoffer = {team: "Atradius Credit Insurance", customer: $scope.selected.name, price: 20, riskacceptance: 90}
+      var thisoffer = {team: "Test", customer: $scope.selected.name, price: 20, riskacceptance: 90}
       console.log(thisoffer)
 
     
@@ -59,11 +59,11 @@ angular.module('atrExpApp')
       };
 })
 
-.controller('LoadMarketCtrl', function LoadMarketCtrl($resource) {
+.controller('LoadMadeOffersCtrl', function LoadMarketCtrl($resource) {
     var vm = this;
     // fetch data with $resource
-    $resource('/api/customer').query().$promise.then(function(customers) {
-        vm.customers = customers;
+    $resource('/api/offer').query().$promise.then(function(offers) {
+        vm.offers = offers;
     });
 })
 

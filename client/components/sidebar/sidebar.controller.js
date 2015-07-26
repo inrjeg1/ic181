@@ -11,6 +11,10 @@ angular.module('atrExpApp')
       'link': '/market',
       'icon': 'globe'
     },{
+      'title': 'Offers',
+      'link': '/madeoffers',
+      'icon': 'briefcase'
+    },{
       'title': 'Customer Portfolio',
       'link': '/customer-portfolio',
       'icon': 'search-plus'
