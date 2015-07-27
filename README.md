@@ -1,5 +1,6 @@
 # AtrExp
 ![Work in progress](http://img.shields.io/badge/work_in-progress-lightgray.svg)
+
 A business simulation engine build with NodeJS &amp; AngularJS
 
 ## How to install & use
