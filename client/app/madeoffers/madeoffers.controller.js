@@ -11,7 +11,7 @@ angular.module('atrExpApp')
     // load selected offer in modal
     $scope.showOffer = function(selectedOffer) {
       $scope.selected = selectedOffer     
-      
+      }
       
       
       
@@ -25,11 +25,20 @@ angular.module('atrExpApp')
 
 
            
-      }
+      
 
 
     // modal backdrop animation
     $scope.animationsEnabled = true
+
+    $scope.deleteoffer = function(selectedOffer){
+      $scope.selected = selectedOffer;
+      $http.delete('/api/offer/' + $scope.selected._id)
+        .success(function(){
+          alert("success");
+        })
+        .error(function(err){alert(err)});
+    }
 
     $scope.open = function (size) {
       // open modal and load tpl
@@ -86,8 +95,10 @@ angular.module('atrExpApp')
       };
 })
 
+
 .controller('LoadMadeOffersCtrl', function LoadMadeOffersCtrl($resource) {
     var vm = this;
+    
     // fetch data with $resource
     $resource('/api/offer').query().$promise.then(function(offers) {
         vm.offers = offers;

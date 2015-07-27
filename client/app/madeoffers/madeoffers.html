@@ -64,7 +64,8 @@
                                     <th>Customer</th>
                                     <th>Price</th>
                                     <th>Risk Acceptance</th>
-                                    <th>Offer</th>
+                                    <th>Amend Offer</th>
+                                    <th>Delete Offer</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,6 +75,7 @@
                                     <td>{{ offer.price }}</td>
                                     <td>{{ offer.riskacceptance }}</td>
                                     <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); open()">Amend Offer</button></td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); deleteoffer(offer)">Delete Offer</button></td>
                                 </tr>
                             </tbody>
                         </table>
