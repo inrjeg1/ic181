@@ -34,7 +34,7 @@ angular.module('atrExpApp')
 .controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, $http) {
     // re-add selectedCustomer to $scope.selected
     $scope.selected = selectedCustomer;
-
+    $scope.thisoffer = {}
     // $scope.ok = function () {
     //   $modalInstance.close($scope.selected.item);
     // };
@@ -47,17 +47,17 @@ angular.module('atrExpApp')
     $scope.addOffer = function() {
       
       console.log($scope.selected)
-      var thisoffer = {
+      $scope.thisoffer = {
         team: "Atradius Credit Insurance", 
         customer_id: $scope.selected._id, 
         customer_name: $scope.selected.name, 
-        price: 20, 
-        riskacceptance: 90
+        price: 20,
+        riskacceptance: 90 
       }
 
-      console.log(thisoffer)
+      console.log($scope.thisoffer)
     
-      $http.post('/api/offer', thisoffer)
+      $http.post('/api/offer', $scope.thisoffer)
            .success(function(data){alert("success")})
            .error(function(err){alert(err)});
       
@@ -76,12 +76,16 @@ angular.module('atrExpApp')
 .controller('SpinnerCtrl', SpinnerCtrl)
       .directive('jqSpinner', jqSpinner);
 
+
+
   function SpinnerCtrl() {
       var spinner = this;
       spinner.val = 0;
+      //spinner.val = 90
   };
 
   function jqSpinner() {
+      $scope.thisoffer.riskacceptance = spinner.val;
       return {
           restrict: 'A',
           require: 'ngModel',

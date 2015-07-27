@@ -7,11 +7,15 @@ angular.module('atrExpApp')
     $scope.showOffer = function(selectedOffer) {
       $scope.selected = selectedOffer     
       
-      $http.get('/api/customer/' + $scope.selected.customer_id).success(function(stuff){
-        $scope.offercust = stuff
-        console.log($scope.offercust)
-      }).error(function(err){alert(err)})
-      };
+      
+      
+      $http.get('/api/customer/' + $scope.selected.customer_id)
+        .success(function(stuff){
+            $scope.offercust = stuff
+            console.log($scope.offercust)
+          })
+        .error(function(err){alert(err)}
+          )};
 
     // modal backdrop animation
     $scope.animationsEnabled = true
@@ -27,23 +31,23 @@ angular.module('atrExpApp')
           selectedOffer: function () {
             return $scope.selected;
           },
-          offercust: function(){
+          offerCustomer: function () {
             return $scope.offercust;
           }
-
         }
       });
       // add selected offer to $scope.selected
-      modalInstance.result.then(function (selectedOffer, offercust, $scope) {
+      modalInstance.result.then(function (selectedOffer, $scope, offerCustomer) {
         $scope.selected = selectedOffer;
-        $scope.offercust = offercust;
+        $scope.offercust = offerCustomer;
       })
     };
   })
 
-.controller('AdjustOfferInstanceCtrl', function ($scope, $modalInstance, selectedOffer, $http) {
+.controller('AdjustOfferInstanceCtrl', function ($scope, $modalInstance, selectedOffer, $http, offerCustomer) {
     // re-add selectedOffer to $scope.selected
     $scope.selected = selectedOffer;
+    $scope.offercust = offerCustomer;
 
     $scope.closeModal = function () {
       $modalInstance.dismiss('close');
