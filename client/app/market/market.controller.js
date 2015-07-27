@@ -85,7 +85,6 @@ angular.module('atrExpApp')
   };
 
   function jqSpinner() {
-      $scope.thisoffer.riskacceptance = spinner.val;
       return {
           restrict: 'A',
           require: 'ngModel',
