@@ -3,30 +3,10 @@
 angular.module('atrExpApp')
   .controller('MadeOffersCtrl', function ($scope, $modal, $http) {
 
-    
-
-    
-    
-
     // load selected offer in modal
     $scope.showOffer = function(selectedOffer) {
       $scope.selected = selectedOffer     
-      }
-      
-      
-      
-
-        //$http.get('/api/customer/' + $scope.selected.customer_id)
-        //.success(function(stuff){$scope.offercust = stuff})
-        //.error(function(err){alert(err)})
-        
-        
-       
-
-
-           
-      
-
+      }        
 
     // modal backdrop animation
     $scope.animationsEnabled = true
