@@ -2,11 +2,12 @@
 
 angular.module('atrExpApp')
   .controller('MarketCtrl', function ($scope, $modal) {
+    
 
-    // load selected customer in modal
+        // load selected customer in modal
     $scope.showCustomer = function(cust) {
       $scope.selected = cust
-    }
+    };
 
     // modal backdrop animation
     $scope.animationsEnabled = true
@@ -31,10 +32,14 @@ angular.module('atrExpApp')
     };
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, $http) {
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, $http, Auth){
+
     // re-add selectedCustomer to $scope.selected
     $scope.selected = selectedCustomer;
-    $scope.thisoffer = {}
+    $scope.thisoffer = {};
+    $scope.team = Auth.getCurrentUser;
+
+    
     // $scope.ok = function () {
     //   $modalInstance.close($scope.selected.item);
     // };
@@ -48,7 +53,7 @@ angular.module('atrExpApp')
       
       console.log($scope.selected)
       $scope.thisoffer = {
-        team: "Atradius Credit Insurance", 
+        team: $scope.team().name,
         customer_id: $scope.selected._id, 
         customer_name: $scope.selected.name, 
         price: 20,
