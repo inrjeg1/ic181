@@ -36,7 +36,32 @@
                         <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
                     </ul>
                 </div>
-                <div class="panel-body">Oops, it looks like you still need to make some offers. Click on the 'Small Prospects' or 'Big Prospects' tabs to make an offer.</div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table datatable="ng" class="table datatable hover">
+                            <thead>
+                                <tr>
+                                    <th>Team</th>
+                                    <th>Customer</th>
+                                    <th>Price</th>
+                                    <th>Risk Acceptance</th>
+                                    <th>Amend Offer</th>
+                                    <th>Delete Offer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="offer in load2.offers">
+                                    <td>{{ offer.team }}</td>
+                                    <td>{{ offer.customer_name }}</td>
+                                    <td>{{ offer.price }}</td>
+                                    <td>{{ offer.riskacceptance }}</td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); amendoffer()">Amend Offer</button></td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); deleteoffer(offer)">Delete Offer</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -99,50 +124,6 @@
                                     <td>{{ cust.buyerTpe2 }}</td>
                                     <td>{{ cust.buyerTpe3 }}</td>
                                     <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showCustomer(cust); open()">Make Offer</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</tab>
-<tab heading="Sent Offers">
-<div class="tab-container">
-    <br>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default" style="background-color:#f9f9f9">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Default</h3>
-                    <ul class="panel-controls">
-                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
-                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                    </ul>
-                </div>
-                <div class="panel-body">
-                    <div class="table-responsive" ng-controller="LoadMadeOffersCtrl as load2">
-                        <table datatable="ng" class="table datatable hover">
-                            <thead>
-                                <tr>
-                                    <th>Team</th>
-                                    <th>Customer</th>
-                                    <th>Price</th>
-                                    <th>Risk Acceptance</th>
-                                    <th>Amend Offer</th>
-                                    <th>Delete Offer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="offer in load2.offers">
-                                    <td>{{ offer.team }}</td>
-                                    <td>{{ offer.customer_name }}</td>
-                                    <td>{{ offer.price }}</td>
-                                    <td>{{ offer.riskacceptance }}</td>
-                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); amendoffer()">Amend Offer</button></td>
-                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); deleteoffer(offer)">Delete Offer</button></td>
                                 </tr>
                             </tbody>
                         </table>
