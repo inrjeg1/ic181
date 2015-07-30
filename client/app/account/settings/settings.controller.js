@@ -19,51 +19,24 @@ angular.module('atrExpApp')
       }
 		};
 
-    $scope.languageToggle = ''
-    $scope.iconAngle = 'angle-down'
-
-    $scope.toggleLanguage = function() {  
-      if ($scope.languageToggle === '') {
-        $scope.languageToggle = 'panel-toggled'
-      } else {
-        $scope.languageToggle = ''
-      }
-      if ($scope.iconAngle === 'angle-down') {
-        $scope.iconAngle = 'angle-up'
-      } else {
-        $scope.iconAngle = 'angle-down'
-      }
-    }
-
+    $scope.isCollapsedTeam = false;
+    $scope.isCollapsedPassword = false;
 
     $scope.team = Auth.getCurrentUser;
+    $scope.members = Auth.getCurrentUser().members
 
     // $scope.$watch('team.slogan',function () {
     //     console.log('$scope.team changed: ', $scope.team)
     // })
 
-    // $scope.updateTeam = function (element) {
-    //   $http.put('/api/users/' + $scope.teamId, {slogan: element});
-    //   console.log('Element: ', element)
-    // }
-
-    $scope.changeSlogan = function (form) {
-      Auth.changeSlogan($scope.team().slogan)
+    $scope.saveTeam = function (form) {
+      Auth.teamSettings($scope.team().slogan, $scope.members)
       .then(function() {
-        $scope.message = 'Slogan successfully changed.';
-        toastr.success('New slogan is saved in the database.', 'Saved!');
+        toastr.success('Save team settings to the database.', 'Saved!');
       })
       .catch(function() {
-        $scope.errors.other = 'Incorrect slogan'
-        $scope.message = ''
+        $scope.errors.other = 'Incorrect team settings'
       })
     }
-
-    // $scope.teamSlogan = Auth.getCurrentUser;
-    // $scope.$watch('teamSlogan', function(newValue, oldValue) {
-    //   if (newValue !== oldValue) {
-    //     console.log('User updated:', newValue);
-    //     $scope.teamSlogan = newValue
-    //   }
-    // }, true);
+    
   })

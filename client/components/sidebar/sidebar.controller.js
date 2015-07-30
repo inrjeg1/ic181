@@ -31,5 +31,10 @@ angular.module('atrExpApp')
       return route === $location.path();
     };
     $scope.slogan = settings.slogan;
+
+    $scope.$watch('slogan.length', function (newValue, oldValue) {
+      if (newValue !== oldValue)
+        $scope.slogan = settings.slogan
+    }, true);  
     
   })

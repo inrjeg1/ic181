@@ -12,10 +12,10 @@ angular.module('atrExpApp')
           controller:'password'
         }
       },
-      changeSlogan: {
+      teamSettings: {
         method: 'PUT',
         params: {
-          controller:'slogan'
+          controller:'team'
         }
       },
       get: {
