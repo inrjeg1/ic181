@@ -7,6 +7,7 @@
 
 var Economy = require('../api/economy/economy.model');
 var User = require('../api/user/user.model');
+var Round = require('../api/round/round.model');
 
 Economy.find({}).remove(function() {
   Economy.create({
@@ -122,6 +123,16 @@ User.find({}).remove(function() {
     members: [{text:'jonathan.elsen@atradius.com'}]
   }, function() {
       console.log('** Finished populating teams.');
+    }
+  );
+});
+
+Round.find({}).remove(function() {
+  Round.create({
+    currentRound: 0,
+    calculated: false
+  }, function() {
+      console.log('** Beginning with round zero...');
     }
   );
 });

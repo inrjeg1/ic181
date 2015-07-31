@@ -24,7 +24,6 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Customer.create(req.body, function(err, customer) {
     if(err) { return handleError(res, err); }
-    console.log('customer: ', customer);
     return res.json(201, customer);
   });
 };

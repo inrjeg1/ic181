@@ -7,6 +7,6 @@ angular.module('atrExpApp')
         url: '/admin',
         templateUrl: 'app/admin/admin.html',
         controller: 'AdminCtrl',
-        authenticate: true
+        authenticate: false // show be true!
       });
   });

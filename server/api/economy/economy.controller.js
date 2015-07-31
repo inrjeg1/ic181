@@ -16,7 +16,6 @@ exports.show = function(req, res) {
   console.log('** req.params.id: ', req.params.id);
   Economy.findById(req.params.id, function (err, economy) {
     if(err) { return handleError(res, err); }
-    console.log('** economy: ', economy);
     if(!economy) { return res.send(404); }
     return res.json(economy);
   });
@@ -34,15 +33,12 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
   Economy.findById(req.params.id, function (err, economy) {
-    console.log('** req.body: ', req.body)
-    console.log('** economy: ', economy)
     if (err) { return handleError(res, err); }
     if(!economy) { return res.send(404); }
     if (economy.__v != req.body.__v) {
       economy.__v -= 1
     }
     var updated = _.extend(economy, req.body);
-    console.log('** updated: ', updated)
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, economy);
