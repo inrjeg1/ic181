@@ -41,22 +41,24 @@
                         <table datatable="ng" class="table datatable hover">
                             <thead>
                                 <tr>
-                                    <th>Team</th>
                                     <th>Customer</th>
+                                    <th>Average Acceptance Rate</th>
                                     <th>Price</th>
-                                    <th>Risk Acceptance</th>
-                                    <th>Amend Offer</th>
+                                    <th>Service Score</th>
+                                    <th>Improve Offer</th>
                                     <th>Delete Offer</th>
+                                    <th>object</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="offer in load2.offers">
-                                    <td>{{ offer.team }}</td>
-                                    <td>{{ offer.customer_name }}</td>
+                                <tr ng-repeat="offer in offers">
+                                    <td>{{ offer.customerName }}</td>
+                                    <td>{{ offer.avgAr }}</td>
                                     <td>{{ offer.price }}</td>
-                                    <td>{{ offer.riskacceptance }}</td>
-                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); amendoffer()">Amend Offer</button></td>
-                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); deleteoffer(offer)">Delete Offer</button></td>
+                                    <td>{{ offer.serviceScore }}</td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); improveOffer()">Improve Offer</button></td>
+                                    <td><button type="button" class="btn btn-info btn-rounded btn-xs" ng-click="showOffer(offer); deleteOffer(offer)">Delete Offer</button></td>
+                                    <td>{{offer}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -100,7 +102,7 @@
                     </ul>
                 </div>
                 <div class="panel-body">
-                    <div class="table-responsive" ng-controller="LoadMarketCtrl as load">
+                    <div class="table-responsive">
                         <table datatable="ng" class="table datatable hover">
                             <thead>
                                 <tr>
@@ -115,7 +117,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="cust in load.customers">
+                                <tr ng-repeat="cust in customers">
                                     <td>{{ cust.name }}</td>
                                     <td>{{ cust.country }}</td>
                                     <td>{{ cust.region }}</td>

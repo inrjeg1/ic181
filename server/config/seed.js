@@ -8,6 +8,7 @@
 var Economy = require('../api/economy/economy.model');
 var User = require('../api/user/user.model');
 var Round = require('../api/round/round.model');
+var Offer = require('../api/offer/offer.model');
 
 Economy.find({}).remove(function() {
   Economy.create({
@@ -95,7 +96,7 @@ Economy.find({}).remove(function() {
       console.log('** Finished populating economy.')
     }
   );
-}); 
+});
 
 User.find({}).remove(function() {
   User.create({
@@ -136,3 +137,5 @@ Round.find({}).remove(function() {
     }
   );
 });
+
+Offer.find({}).remove();

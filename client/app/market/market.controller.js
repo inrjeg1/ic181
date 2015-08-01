@@ -1,22 +1,21 @@
 'use strict';
 
 angular.module('atrExpApp')
-  .controller('MarketCtrl', function ($scope, $modal, $http) {
+  .controller('MarketCtrl', function ($scope, $modal, $http, Market) {
         // load selected customer in modal
     $scope.showCustomer = function(cust) {
-      $scope.selected = cust
+      $scope.selected = cust;
     };
 
     // modal backdrop animation
-    $scope.animationsEnabled = true
+    $scope.animationsEnabled = true;
 
-    $scope.open = function (size) {
+    $scope.open = function () {
       // open modal and load tpl
       var modalInstance = $modal.open({
         animation: $scope.animationsEnabled,
         templateUrl: 'app/market/tpl/modal-customer-decision.html',
         controller: 'ModalInstanceCtrl',
-        size: size,
         resolve: {
           selectedCustomer: function () {
             return $scope.selected;
@@ -26,11 +25,20 @@ angular.module('atrExpApp')
       // add selected customer to $scope.selected
       modalInstance.result.then(function (selectedCustomer) {
         $scope.selected = selectedCustomer;
-      })
+      });
     };
+
+    Market.customers.query().$promise.then(function (customers) {
+      $scope.customers = customers;
+    });
+
+    Market.offers.query().$promise.then(function (offers) {
+      $scope.offers = offers;
+    });
+
   })
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, Auth){
+.controller('ModalInstanceCtrl', function ($scope, $modalInstance, selectedCustomer, Auth, toastr, Offer, $rootScope){
     // re-add selectedCustomer to $scope.selected
     $scope.selected = selectedCustomer;
 
@@ -40,17 +48,38 @@ angular.module('atrExpApp')
     //   $modalInstance.close($scope.selected.item);
     // };
 
+    $scope.price = 0;
+
     $scope.closeModal = function () {
       $modalInstance.dismiss('close');
     };
-  })
 
-.controller('LoadMarketCtrl', function LoadMarketCtrl($resource) {
-    var vm = this;
-    // fetch data with $resource
-    $resource('/api/customer').query().$promise.then(function(customers) {
-        vm.customers = customers;
+    $rootScope.$on('spinnerChange', function (event, getSpinner) {
+      $scope.spinner = getSpinner.value;
     });
+
+    $scope.submitOffer = function() {
+      // create new offer
+      console.log('scope spinner value: ', $scope.spinner);
+      var avgAr = $scope.selected.buyerTpe1 + $scope.selected.buyerTpe2 + $scope.selected.buyerTpe1;
+      var offerObj = {
+        customerId: selectedCustomer._id,
+        round: 0,
+        ar1: $scope.selected.buyerTpe1,
+        ar2: $scope.selected.buyerTpe2,
+        ar3: $scope.selected.buyerTpe3,
+        avgAr: avgAr,
+        price: $scope.price,
+        serviceScore: 110
+      };
+      var newOffer = new Offer(offerObj);
+      newOffer.$save(function (newOfferObj) {
+        console.log(newOfferObj);
+      });
+
+      // update customer with new offerId
+      toastr.success('Your offer has been submitted to ' + selectedCustomer.name + '.', 'Offer sent!');
+    };
   })
 
 .controller('SpinnerCtrl', SpinnerCtrl)
@@ -59,19 +88,20 @@ angular.module('atrExpApp')
   function SpinnerCtrl() {
       var spinner = this;
       spinner.val = 0;
-  };
+  }
 
-  function jqSpinner() {
+  function jqSpinner($rootScope) {
       return {
           restrict: 'A',
           require: 'ngModel',
           link: function (scope, element, attrs, spinner) {
               element.spinner({
                   spin: function (event, ui) {
+                      $rootScope.$broadcast('spinnerChange', { value: ui.value})
                       spinner.$setViewValue(ui.value);
                   }
               });
           }
       };
-  };
+  }
 
